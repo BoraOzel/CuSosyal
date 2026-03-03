@@ -11,8 +11,9 @@
 		0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F1909CA2F57572D00BC8EF2 /* LaunchScreen.storyboard */; };
 		0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909C62F57572D00BC8EF2 /* AppDelegate.swift */; };
 		0F1909D52F57572D00BC8EF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909CD2F57572D00BC8EF2 /* SceneDelegate.swift */; };
-		0F1909D62F57572D00BC8EF2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909CE2F57572D00BC8EF2 /* HomeViewController.swift */; };
-		0F1909DD2F5757FE00BC8EF2 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F1909DC2F5757FE00BC8EF2 /* HomeViewController.xib */; };
+		0F1909E02F575F0500BC8EF2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909DF2F575F0500BC8EF2 /* MainTabBarController.swift */; };
+		0F1909E32F57623E00BC8EF2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909E12F57623E00BC8EF2 /* HomeViewController.swift */; };
+		0F1909E42F57623E00BC8EF2 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F1909E22F57623E00BC8EF2 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +23,9 @@
 		0F1909C82F57572D00BC8EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F1909C92F57572D00BC8EF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F1909CD2F57572D00BC8EF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0F1909CE2F57572D00BC8EF2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		0F1909DC2F5757FE00BC8EF2 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		0F1909DF2F575F0500BC8EF2 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		0F1909E12F57623E00BC8EF2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0F1909E22F57623E00BC8EF2 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,8 @@
 		0F1909DB2F5757BB00BC8EF2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0F1909CE2F57572D00BC8EF2 /* HomeViewController.swift */,
-				0F1909DC2F5757FE00BC8EF2 /* HomeViewController.xib */,
+				0F1909E12F57623E00BC8EF2 /* HomeViewController.swift */,
+				0F1909E22F57623E00BC8EF2 /* HomeViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -103,6 +105,7 @@
 		0F1909DE2F575C5400BC8EF2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0F1909DF2F575F0500BC8EF2 /* MainTabBarController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -170,7 +173,7 @@
 			files = (
 				0F1909D02F57572D00BC8EF2 /* Assets.xcassets in Resources */,
 				0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */,
-				0F1909DD2F5757FE00BC8EF2 /* HomeViewController.xib in Resources */,
+				0F1909E42F57623E00BC8EF2 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +186,8 @@
 			files = (
 				0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */,
 				0F1909D52F57572D00BC8EF2 /* SceneDelegate.swift in Sources */,
-				0F1909D62F57572D00BC8EF2 /* HomeViewController.swift in Sources */,
+				0F1909E02F575F0500BC8EF2 /* MainTabBarController.swift in Sources */,
+				0F1909E32F57623E00BC8EF2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

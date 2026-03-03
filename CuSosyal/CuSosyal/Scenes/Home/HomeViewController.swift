@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  CuSosyal
 //
 //  Created by Bora Özel on 3/3/26.
@@ -11,9 +11,9 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
 
-}
 
+
+}
