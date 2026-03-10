@@ -8,12 +8,18 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var savedEventsCollectionView: UICollectionView!
+    @IBOutlet weak var interestCollectionView: UICollectionView!
+    @IBOutlet weak var askAiView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
 
-
+    @IBAction func profileButtonClicked(_ sender: Any) {
+    }
+    
 
 }
