@@ -22,6 +22,10 @@
 		0F1909F12F603C2B00BC8EF2 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909F02F603C2B00BC8EF2 /* Clubs.swift */; };
 		0F1909F32F603CC700BC8EF2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909F22F603CC700BC8EF2 /* Users.swift */; };
 		0F1909F52F603D5D00BC8EF2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909F42F603D5D00BC8EF2 /* Events.swift */; };
+		0F1909F92F615A7B00BC8EF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909F72F615A7B00BC8EF2 /* LoginViewController.swift */; };
+		0F1909FA2F615A7B00BC8EF2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F1909F82F615A7B00BC8EF2 /* LoginViewController.xib */; };
+		0F1909FD2F615DE000BC8EF2 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909FC2F615DE000BC8EF2 /* AuthManager.swift */; };
+		0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909FE2F615EDB00BC8EF2 /* AuthError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		0F1909F02F603C2B00BC8EF2 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
 		0F1909F22F603CC700BC8EF2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		0F1909F42F603D5D00BC8EF2 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		0F1909F72F615A7B00BC8EF2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0F1909F82F615A7B00BC8EF2 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		0F1909FC2F615DE000BC8EF2 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		0F1909FE2F615EDB00BC8EF2 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				0F1909D72F57573400BC8EF2 /* Application */,
+				0F1909FB2F615DC500BC8EF2 /* Managers */,
 				0F1909DE2F575C5400BC8EF2 /* Utilities */,
 				0F1909D82F57577000BC8EF2 /* Models */,
 				0F1909DA2F57578400BC8EF2 /* Scenes */,
@@ -97,6 +106,7 @@
 		0F1909D82F57577000BC8EF2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0F1909FE2F615EDB00BC8EF2 /* AuthError.swift */,
 				0F1909F02F603C2B00BC8EF2 /* Clubs.swift */,
 				0F1909F22F603CC700BC8EF2 /* Users.swift */,
 				0F1909F42F603D5D00BC8EF2 /* Events.swift */,
@@ -107,6 +117,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0F1909F62F615A6700BC8EF2 /* Login */,
 				0F1909DB2F5757BB00BC8EF2 /* Home */,
 			);
 			path = Scenes;
@@ -127,6 +138,23 @@
 				0F1909DF2F575F0500BC8EF2 /* MainTabBarController.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0F1909F62F615A6700BC8EF2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0F1909F72F615A7B00BC8EF2 /* LoginViewController.swift */,
+				0F1909F82F615A7B00BC8EF2 /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0F1909FB2F615DC500BC8EF2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0F1909FC2F615DE000BC8EF2 /* AuthManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1909FA2F615A7B00BC8EF2 /* LoginViewController.xib in Resources */,
 				0F1909D02F57572D00BC8EF2 /* Assets.xcassets in Resources */,
 				0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */,
 				0F1909E42F57623E00BC8EF2 /* HomeViewController.xib in Resources */,
@@ -212,9 +241,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */,
+				0F1909FD2F615DE000BC8EF2 /* AuthManager.swift in Sources */,
 				0F1909F12F603C2B00BC8EF2 /* Clubs.swift in Sources */,
 				0F1909D52F57572D00BC8EF2 /* SceneDelegate.swift in Sources */,
+				0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */,
 				0F1909E02F575F0500BC8EF2 /* MainTabBarController.swift in Sources */,
+				0F1909F92F615A7B00BC8EF2 /* LoginViewController.swift in Sources */,
 				0F1909F52F603D5D00BC8EF2 /* Events.swift in Sources */,
 				0F1909F32F603CC700BC8EF2 /* Users.swift in Sources */,
 				0F1909E32F57623E00BC8EF2 /* HomeViewController.swift in Sources */,
