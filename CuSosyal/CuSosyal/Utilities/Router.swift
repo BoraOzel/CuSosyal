@@ -24,7 +24,7 @@ class Router {
     }
     
     static func switchToAuth(window: UIWindow) {
-        window.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        window.rootViewController = UINavigationController(rootViewController: LoginViewController(viewModel: LoginViewModel()))
     }
     
 }

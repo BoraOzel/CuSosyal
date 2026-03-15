@@ -28,6 +28,8 @@
 		0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1909FE2F615EDB00BC8EF2 /* AuthError.swift */; };
 		0F190A012F66A32A00BC8EF2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A002F66A32A00BC8EF2 /* Router.swift */; };
 		0F190A032F66A5F000BC8EF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F190A022F66A5F000BC8EF2 /* GoogleService-Info.plist */; };
+		0F190A052F66BDAD00BC8EF2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A042F66BDAD00BC8EF2 /* LoginViewModel.swift */; };
+		0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A062F66C1F300BC8EF2 /* AlertPresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		0F1909FE2F615EDB00BC8EF2 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		0F190A002F66A32A00BC8EF2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0F190A022F66A5F000BC8EF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0F190A042F66BDAD00BC8EF2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0F190A062F66C1F300BC8EF2 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 			children = (
 				0F1909DF2F575F0500BC8EF2 /* MainTabBarController.swift */,
 				0F190A002F66A32A00BC8EF2 /* Router.swift */,
+				0F190A062F66C1F300BC8EF2 /* AlertPresentable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				0F1909F72F615A7B00BC8EF2 /* LoginViewController.swift */,
+				0F190A042F66BDAD00BC8EF2 /* LoginViewModel.swift */,
 				0F1909F82F615A7B00BC8EF2 /* LoginViewController.xib */,
 			);
 			path = Login;
@@ -251,10 +257,12 @@
 				0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */,
 				0F1909FD2F615DE000BC8EF2 /* AuthManager.swift in Sources */,
 				0F1909F12F603C2B00BC8EF2 /* Clubs.swift in Sources */,
+				0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */,
 				0F1909D52F57572D00BC8EF2 /* SceneDelegate.swift in Sources */,
 				0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */,
 				0F1909E02F575F0500BC8EF2 /* MainTabBarController.swift in Sources */,
 				0F1909F92F615A7B00BC8EF2 /* LoginViewController.swift in Sources */,
+				0F190A052F66BDAD00BC8EF2 /* LoginViewModel.swift in Sources */,
 				0F1909F52F603D5D00BC8EF2 /* Events.swift in Sources */,
 				0F1909F32F603CC700BC8EF2 /* Users.swift in Sources */,
 				0F1909E32F57623E00BC8EF2 /* HomeViewController.swift in Sources */,
