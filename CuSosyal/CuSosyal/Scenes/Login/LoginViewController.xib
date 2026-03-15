@@ -24,12 +24,27 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTO-q8-MDQ">
                     <rect key="frame" x="5" y="123" width="383" height="656"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ÇÜ Sosyal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY7-SV-Ide">
-                            <rect key="frame" x="115.33333333333333" y="60" width="152.66666666666669" height="38.333333333333343"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                            <color key="textColor" name="primaryColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="666-Yj-kWJ">
+                            <rect key="frame" x="91.666666666666686" y="30" width="200" height="158.33333333333334"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cu-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bgt-Kd-lCY">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="LdV-0B-pz5"/>
+                                        <constraint firstAttribute="width" constant="200" id="qPZ-Pk-37e"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ÇÜ Sosyal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY7-SV-Ide">
+                                    <rect key="frame" x="0.0" y="119.99999999999999" width="200" height="38.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                    <color key="textColor" name="primaryColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="Vev-UB-IFd"/>
+                            </constraints>
+                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="J3s-GW-mj7">
                             <rect key="frame" x="10" y="284" width="363" height="88"/>
                             <subviews>
@@ -40,7 +55,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNK-8V-mSR">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNK-8V-mSR">
                                     <rect key="frame" x="0.0" y="54" width="363" height="34"/>
                                     <color key="tintColor" name="primaryColor"/>
                                     <color key="textColor" name="primaryColor"/>
@@ -55,8 +70,12 @@
                                 <constraint firstAttribute="width" constant="100" id="ZeV-4m-gMk"/>
                             </constraints>
                             <color key="tintColor" name="primaryColor"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="tinted" title="Giriş Yap"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Giriş Yap"/>
+                            <buttonConfiguration key="configuration" style="tinted" title="Giriş Yap">
+                                <color key="baseForegroundColor" name="primaryColor"/>
+                                <color key="baseBackgroundColor" name="primaryColor"/>
+                            </buttonConfiguration>
                             <connections>
                                 <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="pxn-Ej-1BR"/>
                             </connections>
@@ -75,15 +94,15 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="666-Yj-kWJ" firstAttribute="centerX" secondItem="DTO-q8-MDQ" secondAttribute="centerX" id="4pC-4E-XgG"/>
                         <constraint firstItem="VZd-1G-9cK" firstAttribute="centerX" secondItem="DTO-q8-MDQ" secondAttribute="centerX" id="8BG-HY-JD3"/>
                         <constraint firstAttribute="trailing" secondItem="J3s-GW-mj7" secondAttribute="trailing" constant="10" id="DaD-IK-uYO"/>
                         <constraint firstItem="VZd-1G-9cK" firstAttribute="top" secondItem="ffZ-v6-dR1" secondAttribute="bottom" constant="5" id="Izr-Xd-8bf"/>
                         <constraint firstItem="ffZ-v6-dR1" firstAttribute="top" secondItem="J3s-GW-mj7" secondAttribute="bottom" constant="40" id="P22-GM-DaN"/>
-                        <constraint firstItem="dY7-SV-Ide" firstAttribute="centerX" secondItem="DTO-q8-MDQ" secondAttribute="centerX" id="cQt-Ns-S1v"/>
+                        <constraint firstItem="666-Yj-kWJ" firstAttribute="top" secondItem="DTO-q8-MDQ" secondAttribute="top" constant="30" id="Rab-Ct-PWj"/>
                         <constraint firstItem="J3s-GW-mj7" firstAttribute="centerY" secondItem="DTO-q8-MDQ" secondAttribute="centerY" id="e0J-gO-H6j"/>
                         <constraint firstItem="ffZ-v6-dR1" firstAttribute="centerX" secondItem="DTO-q8-MDQ" secondAttribute="centerX" id="ej6-9l-10s"/>
                         <constraint firstItem="J3s-GW-mj7" firstAttribute="leading" secondItem="DTO-q8-MDQ" secondAttribute="leading" constant="10" id="f2I-W9-OdS"/>
-                        <constraint firstItem="dY7-SV-Ide" firstAttribute="top" secondItem="DTO-q8-MDQ" secondAttribute="top" constant="60" id="i4i-4E-9lG"/>
                     </constraints>
                 </view>
             </subviews>
@@ -99,6 +118,7 @@
         </view>
     </objects>
     <resources>
+        <image name="cu-logo" width="225" height="225"/>
         <namedColor name="primaryColor">
             <color red="0.2196078431372549" green="0.55686274509803924" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
