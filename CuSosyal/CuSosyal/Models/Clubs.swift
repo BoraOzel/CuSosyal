@@ -14,5 +14,5 @@ struct Clubs: Codable {
     let name: String
     let description: String?
     let logoUrl: String?
-    let tags: [String]
+    let tags: [Tags]
 }

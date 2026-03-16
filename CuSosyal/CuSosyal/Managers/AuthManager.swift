@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 protocol AuthManagerProtocol {
-    func registerUser(with email: String, password: String, name: String, interestedTags: [String]) async throws
+    func registerUser(with email: String, password: String, name: String, interestedTags: [Tags]) async throws
     func signIn(with email: String, password: String) async throws
     func signOut() throws
     func mapFirebaseError(_ error: Error) -> AuthError
@@ -39,7 +39,7 @@ class AuthManager {
 
 extension AuthManager: AuthManagerProtocol {
     
-    func registerUser(with email: String, password: String, name: String, interestedTags: [String]) async throws {
+    func registerUser(with email: String, password: String, name: String, interestedTags: [Tags]) async throws {
         
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)

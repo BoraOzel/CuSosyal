@@ -17,5 +17,5 @@ struct Users: Codable {
     @DocumentID var id: String?
     let name: String
     let email: String
-    let interestedTags: [String]?
+    let interestedTags: [Tags]?
 }

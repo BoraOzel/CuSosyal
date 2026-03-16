@@ -30,6 +30,7 @@
 		0F190A032F66A5F000BC8EF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F190A022F66A5F000BC8EF2 /* GoogleService-Info.plist */; };
 		0F190A052F66BDAD00BC8EF2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A042F66BDAD00BC8EF2 /* LoginViewModel.swift */; };
 		0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A062F66C1F300BC8EF2 /* AlertPresentable.swift */; };
+		0F190A092F688B6500BC8EF2 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A082F688B6500BC8EF2 /* Tags.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		0F190A022F66A5F000BC8EF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F190A042F66BDAD00BC8EF2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0F190A062F66C1F300BC8EF2 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
+		0F190A082F688B6500BC8EF2 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				0F1909F02F603C2B00BC8EF2 /* Clubs.swift */,
 				0F1909F22F603CC700BC8EF2 /* Users.swift */,
 				0F1909F42F603D5D00BC8EF2 /* Events.swift */,
+				0F190A082F688B6500BC8EF2 /* Tags.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			files = (
 				0F190A012F66A32A00BC8EF2 /* Router.swift in Sources */,
 				0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */,
+				0F190A092F688B6500BC8EF2 /* Tags.swift in Sources */,
 				0F1909FD2F615DE000BC8EF2 /* AuthManager.swift in Sources */,
 				0F1909F12F603C2B00BC8EF2 /* Clubs.swift in Sources */,
 				0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */,
