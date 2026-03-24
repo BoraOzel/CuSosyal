@@ -13,6 +13,7 @@ enum AuthError: Error {
     case wrongPassword
     case userNotFound
     case emailAlreadyInUse
+    case passwordsDontMatch
     case unknown
     case blank
     
@@ -23,6 +24,7 @@ enum AuthError: Error {
         case .wrongPassword: return "Şifrenizi hatalı girdiniz."
         case .userNotFound: return "Bu emaile kayıtlı hesap bulunamadı. Lütfen kayıt olunuz."
         case .emailAlreadyInUse: return "Bu email kullanılıyor."
+        case .passwordsDontMatch: return "Parolalar eşleşmiyor."
         case .unknown: return "Bilinmeyen bir hata meydana geldi."
         case .blank: return "Lütfen tüm boşlukları doldurunuz."
         }

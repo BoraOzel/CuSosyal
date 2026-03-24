@@ -58,3 +58,5 @@ enum Tags: String, Codable, CaseIterable {
     case Motor = "Motor"
     case Hayvan = "Hayvan"
 }
+
+

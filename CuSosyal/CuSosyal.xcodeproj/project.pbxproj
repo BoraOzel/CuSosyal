@@ -31,6 +31,14 @@
 		0F190A052F66BDAD00BC8EF2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A042F66BDAD00BC8EF2 /* LoginViewModel.swift */; };
 		0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A062F66C1F300BC8EF2 /* AlertPresentable.swift */; };
 		0F190A092F688B6500BC8EF2 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A082F688B6500BC8EF2 /* Tags.swift */; };
+		0F190A0D2F68931600BC8EF2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A0B2F68931600BC8EF2 /* RegisterViewController.swift */; };
+		0F190A0E2F68931600BC8EF2 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F190A0C2F68931600BC8EF2 /* RegisterViewController.xib */; };
+		0F190A122F68990C00BC8EF2 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A102F68990C00BC8EF2 /* TagsViewController.swift */; };
+		0F190A132F68990C00BC8EF2 /* TagsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F190A112F68990C00BC8EF2 /* TagsViewController.xib */; };
+		0F190A162F69A06200BC8EF2 /* Tags+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A152F69A06200BC8EF2 /* Tags+UI.swift */; };
+		0F190A182F72B0B200BC8EF2 /* TagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A172F72B0B200BC8EF2 /* TagsViewModel.swift */; };
+		0F190A1A2F72B0C000BC8EF2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A192F72B0C000BC8EF2 /* RegisterViewModel.swift */; };
+		0F190A1C2F72B0D100BC8EF2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A1B2F72B0D100BC8EF2 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +63,14 @@
 		0F190A042F66BDAD00BC8EF2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0F190A062F66C1F300BC8EF2 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		0F190A082F688B6500BC8EF2 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		0F190A0B2F68931600BC8EF2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		0F190A0C2F68931600BC8EF2 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		0F190A102F68990C00BC8EF2 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
+		0F190A112F68990C00BC8EF2 /* TagsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsViewController.xib; sourceTree = "<group>"; };
+		0F190A152F69A06200BC8EF2 /* Tags+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tags+UI.swift"; sourceTree = "<group>"; };
+		0F190A172F72B0B200BC8EF2 /* TagsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewModel.swift; sourceTree = "<group>"; };
+		0F190A192F72B0C000BC8EF2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		0F190A1B2F72B0D100BC8EF2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +111,7 @@
 				0F1909D72F57573400BC8EF2 /* Application */,
 				0F1909FB2F615DC500BC8EF2 /* Managers */,
 				0F1909DE2F575C5400BC8EF2 /* Utilities */,
+				0F190A142F69A03700BC8EF2 /* Extensions */,
 				0F1909D82F57577000BC8EF2 /* Models */,
 				0F1909DA2F57578400BC8EF2 /* Scenes */,
 				0F1909C82F57572D00BC8EF2 /* Info.plist */,
@@ -129,6 +146,8 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0F190A0F2F6898FD00BC8EF2 /* Tags */,
+				0F190A0A2F68927200BC8EF2 /* Register */,
 				0F1909F62F615A6700BC8EF2 /* Login */,
 				0F1909DB2F5757BB00BC8EF2 /* Home */,
 			);
@@ -139,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				0F1909E12F57623E00BC8EF2 /* HomeViewController.swift */,
+				0F190A1B2F72B0D100BC8EF2 /* HomeViewModel.swift */,
 				0F1909E22F57623E00BC8EF2 /* HomeViewController.xib */,
 			);
 			path = Home;
@@ -170,6 +190,34 @@
 				0F1909FC2F615DE000BC8EF2 /* AuthManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		0F190A0A2F68927200BC8EF2 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				0F190A0B2F68931600BC8EF2 /* RegisterViewController.swift */,
+				0F190A192F72B0C000BC8EF2 /* RegisterViewModel.swift */,
+				0F190A0C2F68931600BC8EF2 /* RegisterViewController.xib */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		0F190A0F2F6898FD00BC8EF2 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				0F190A102F68990C00BC8EF2 /* TagsViewController.swift */,
+				0F190A172F72B0B200BC8EF2 /* TagsViewModel.swift */,
+				0F190A112F68990C00BC8EF2 /* TagsViewController.xib */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
+		0F190A142F69A03700BC8EF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0F190A152F69A06200BC8EF2 /* Tags+UI.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +292,10 @@
 				0F1909FA2F615A7B00BC8EF2 /* LoginViewController.xib in Resources */,
 				0F1909D02F57572D00BC8EF2 /* Assets.xcassets in Resources */,
 				0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */,
+				0F190A132F68990C00BC8EF2 /* TagsViewController.xib in Resources */,
 				0F190A032F66A5F000BC8EF2 /* GoogleService-Info.plist in Resources */,
 				0F1909E42F57623E00BC8EF2 /* HomeViewController.xib in Resources */,
+				0F190A0E2F68931600BC8EF2 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,11 +307,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F190A012F66A32A00BC8EF2 /* Router.swift in Sources */,
+				0F190A122F68990C00BC8EF2 /* TagsViewController.swift in Sources */,
+				0F190A162F69A06200BC8EF2 /* Tags+UI.swift in Sources */,
+				0F190A1C2F72B0D100BC8EF2 /* HomeViewModel.swift in Sources */,
 				0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */,
 				0F190A092F688B6500BC8EF2 /* Tags.swift in Sources */,
 				0F1909FD2F615DE000BC8EF2 /* AuthManager.swift in Sources */,
 				0F1909F12F603C2B00BC8EF2 /* Clubs.swift in Sources */,
+				0F190A182F72B0B200BC8EF2 /* TagsViewModel.swift in Sources */,
+				0F190A1A2F72B0C000BC8EF2 /* RegisterViewModel.swift in Sources */,
 				0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */,
+				0F190A0D2F68931600BC8EF2 /* RegisterViewController.swift in Sources */,
 				0F1909D52F57572D00BC8EF2 /* SceneDelegate.swift in Sources */,
 				0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */,
 				0F1909E02F575F0500BC8EF2 /* MainTabBarController.swift in Sources */,

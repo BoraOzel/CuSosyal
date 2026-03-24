@@ -55,7 +55,7 @@ class LoginViewController: UIViewController,
     
     
     @IBAction func registerButtonClicked(_ sender: Any) {
-        
+        navigateToRegister(vc: RegisterViewController(viewModel: RegisterViewModel()))
     }
     
 }
@@ -68,7 +68,7 @@ extension LoginViewController: LoginViewControllerInterface {
     }
     
     func navigateToRegister(vc: UIViewController) {
-
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
