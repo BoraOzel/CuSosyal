@@ -39,6 +39,9 @@
 		0F190A182F72B0B200BC8EF2 /* TagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A172F72B0B200BC8EF2 /* TagsViewModel.swift */; };
 		0F190A1A2F72B0C000BC8EF2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A192F72B0C000BC8EF2 /* RegisterViewModel.swift */; };
 		0F190A1C2F72B0D100BC8EF2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A1B2F72B0D100BC8EF2 /* HomeViewModel.swift */; };
+		0F190A202F72CAF300BC8EF2 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A1E2F72CAF300BC8EF2 /* TagsCollectionViewCell.swift */; };
+		0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F190A1F2F72CAF300BC8EF2 /* TagsCollectionViewCell.xib */; };
+		0F190A492F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A482F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +74,9 @@
 		0F190A172F72B0B200BC8EF2 /* TagsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewModel.swift; sourceTree = "<group>"; };
 		0F190A192F72B0C000BC8EF2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		0F190A1B2F72B0D100BC8EF2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0F190A1E2F72CAF300BC8EF2 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
+		0F190A1F2F72CAF300BC8EF2 /* TagsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsCollectionViewCell.xib; sourceTree = "<group>"; };
+		0F190A482F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnGridFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 				0F1909DE2F575C5400BC8EF2 /* Utilities */,
 				0F190A142F69A03700BC8EF2 /* Extensions */,
 				0F1909D82F57577000BC8EF2 /* Models */,
+				0F190A1D2F72CA8300BC8EF2 /* CustomViews */,
 				0F1909DA2F57578400BC8EF2 /* Scenes */,
 				0F1909C82F57572D00BC8EF2 /* Info.plist */,
 				0F190A022F66A5F000BC8EF2 /* GoogleService-Info.plist */,
@@ -170,6 +177,7 @@
 				0F1909DF2F575F0500BC8EF2 /* MainTabBarController.swift */,
 				0F190A002F66A32A00BC8EF2 /* Router.swift */,
 				0F190A062F66C1F300BC8EF2 /* AlertPresentable.swift */,
+				0F190A482F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -218,6 +226,15 @@
 				0F190A152F69A06200BC8EF2 /* Tags+UI.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0F190A1D2F72CA8300BC8EF2 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0F190A1E2F72CAF300BC8EF2 /* TagsCollectionViewCell.swift */,
+				0F190A1F2F72CAF300BC8EF2 /* TagsCollectionViewCell.xib */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F1909FA2F615A7B00BC8EF2 /* LoginViewController.xib in Resources */,
+				0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */,
 				0F1909D02F57572D00BC8EF2 /* Assets.xcassets in Resources */,
 				0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */,
 				0F190A132F68990C00BC8EF2 /* TagsViewController.xib in Resources */,
@@ -322,6 +340,8 @@
 				0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */,
 				0F1909E02F575F0500BC8EF2 /* MainTabBarController.swift in Sources */,
 				0F1909F92F615A7B00BC8EF2 /* LoginViewController.swift in Sources */,
+				0F190A492F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift in Sources */,
+				0F190A202F72CAF300BC8EF2 /* TagsCollectionViewCell.swift in Sources */,
 				0F190A052F66BDAD00BC8EF2 /* LoginViewModel.swift in Sources */,
 				0F1909F52F603D5D00BC8EF2 /* Events.swift in Sources */,
 				0F1909F32F603CC700BC8EF2 /* Users.swift in Sources */,

@@ -11,20 +11,27 @@ protocol TagSelectionDelegate: AnyObject {
     func didSelectTags(tags: [Tags])
 }
 
+protocol TagsViewControllerInterface {
+    func setupCollectionView()
+}
+
 class TagsViewController: UIViewController,
                           AlertPresentable {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tagsCollectionView: UICollectionView!
     
+    typealias CustomLayout = UICollectionViewFlowLayout
+    
     var selectedTags: [Tags] = []
     
     weak var delegate: TagSelectionDelegate?
     
+    private let allTags = Tags.allCases
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
+        setupCollectionView()
     }
 
     @IBAction func registerButtonClicked(_ sender: Any) {
@@ -37,6 +44,39 @@ class TagsViewController: UIViewController,
         }
         
         delegate?.didSelectTags(tags: selectedTags)
+    }
+    
+}
+
+extension TagsViewController: TagsViewControllerInterface {
+    
+    func setupCollectionView() {
+        tagsCollectionView.delegate = self
+        tagsCollectionView.dataSource = self
+        
+        tagsCollectionView.register(UINib(nibName: "TagsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TagsCollectionViewCell")
+        
+        tagsCollectionView.collectionViewLayout = ThreeColumnGridFlowLayout()
+    }
+    
+}
+
+extension TagsViewController: UICollectionViewDelegate {
+    
+}
+
+extension TagsViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return allTags.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagsCollectionViewCell", for: indexPath) as! TagsCollectionViewCell
+        let currentTag = allTags[indexPath.row]
+        
+        cell.configure(tag: currentTag)
+        return cell
     }
     
 }

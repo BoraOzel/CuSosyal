@@ -11,7 +11,7 @@ enum Tags: String, Codable, CaseIterable {
     case Istatistik = "İstatistik"
     case VeriBilimi = "Veri Bilimi"
     case Teknoloji = "Teknoloji"
-    case Yazilim = "Yazilim"
+    case Yazilim = "Yazılım"
     case Fotograf = "Fotoğraf"
     case Sanat = "Sanat"
     case SosyalSorumluluk = "Sosyal Sorumluluk"
@@ -54,7 +54,7 @@ enum Tags: String, Codable, CaseIterable {
     case Hukuk = "Hukuk"
     case Insaat = "İnşaat"
     case Tarim = "Tarım"
-    case Doga = "Doga"
+    case Doga = "Doğa"
     case Motor = "Motor"
     case Hayvan = "Hayvan"
 }
