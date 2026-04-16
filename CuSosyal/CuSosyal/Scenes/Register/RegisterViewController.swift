@@ -53,12 +53,16 @@ class RegisterViewController: UIViewController,
             showAlert(title: "Hata",
                       message: "Girdiğiniz parolalar eşleşmiyor.",
                       buttonText: "Tamam")
+            
+            return
         }
         
         if !email.contains("@") {
             showAlert(title: "Hata",
                       message: "Geçerli bir email formatı giriniz.",
                       buttonText: "Tamam")
+            
+            return
         }
         
         let tagsVC = TagsViewController()
@@ -76,7 +80,11 @@ extension RegisterViewController: RegisterViewControllerInterface {
     }
     
     func navigateToApp() {
-        guard let window = self.view.window else { return }
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first(where: { $0.isKeyWindow }) else {
+            
+            return
+        }
         Router.switchToApp(window: window)
     }
 }
@@ -89,6 +97,15 @@ extension RegisterViewController: TagSelectionDelegate {
                                              email: emailTextField.text!,
                                              password: passwordTextField.text!,
                                              tags: tags)
+                await MainActor.run {
+                    self.navigateToApp()
+                }
+            } catch {
+                await MainActor.run {
+                    self.showAlert(title: "Hata",
+                                   message: error.localizedDescription,
+                                   buttonText: "Tamam")
+                }
             }
         }
     }

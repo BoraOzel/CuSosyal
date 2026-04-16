@@ -33,9 +33,9 @@ class TagsViewController: UIViewController,
         super.viewDidLoad()
         setupCollectionView()
     }
-
+    
     @IBAction func registerButtonClicked(_ sender: Any) {
-        guard !selectedTags.isEmpty else {
+        guard selectedTags.count >= 3 else {
             showAlert(title: "Hata",
                       message: "En az 3 adet ilgi alanı seçiniz.",
                       buttonText: "Tamam")
@@ -56,12 +56,29 @@ extension TagsViewController: TagsViewControllerInterface {
         
         tagsCollectionView.register(UINib(nibName: "TagsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TagsCollectionViewCell")
         
+        tagsCollectionView.allowsMultipleSelection = true
         tagsCollectionView.collectionViewLayout = ThreeColumnGridFlowLayout()
     }
     
 }
 
 extension TagsViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedTag = allTags[indexPath.row]
+        
+        if !selectedTags.contains(selectedTag) {
+            selectedTags.append(selectedTag)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let deselectedTag = allTags[indexPath.row]
+        
+        if let index = selectedTags.firstIndex(of: deselectedTag) {
+            selectedTags.remove(at: index)
+        }
+    }
     
 }
 
@@ -76,6 +93,15 @@ extension TagsViewController: UICollectionViewDataSource {
         let currentTag = allTags[indexPath.row]
         
         cell.configure(tag: currentTag)
+        
+        if selectedTags.contains(currentTag) {
+            cell.isSelected = true
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+        } else {
+            cell.isSelected = false
+            collectionView.deselectItem(at: indexPath, animated: false)
+        }
+        
         return cell
     }
     
