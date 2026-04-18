@@ -42,6 +42,9 @@
 		0F190A202F72CAF300BC8EF2 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A1E2F72CAF300BC8EF2 /* TagsCollectionViewCell.swift */; };
 		0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F190A1F2F72CAF300BC8EF2 /* TagsCollectionViewCell.xib */; };
 		0F190A492F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A482F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift */; };
+		0F5670912F914568005FE755 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56708F2F914568005FE755 /* ProfileViewController.swift */; };
+		0F5670922F914568005FE755 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5670902F914568005FE755 /* ProfileViewController.xib */; };
+		0F5670942F91457F005FE755 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670932F91457F005FE755 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,9 @@
 		0F190A1E2F72CAF300BC8EF2 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F190A1F2F72CAF300BC8EF2 /* TagsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsCollectionViewCell.xib; sourceTree = "<group>"; };
 		0F190A482F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnGridFlowLayout.swift; sourceTree = "<group>"; };
+		0F56708F2F914568005FE755 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0F5670902F914568005FE755 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		0F5670932F91457F005FE755 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0F56708E2F91454B005FE755 /* Profile */,
 				0F190A0F2F6898FD00BC8EF2 /* Tags */,
 				0F190A0A2F68927200BC8EF2 /* Register */,
 				0F1909F62F615A6700BC8EF2 /* Login */,
@@ -237,6 +244,16 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		0F56708E2F91454B005FE755 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0F56708F2F914568005FE755 /* ProfileViewController.swift */,
+				0F5670932F91457F005FE755 /* ProfileViewModel.swift */,
+				0F5670902F914568005FE755 /* ProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F5670922F914568005FE755 /* ProfileViewController.xib in Resources */,
 				0F1909FA2F615A7B00BC8EF2 /* LoginViewController.xib in Resources */,
 				0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */,
 				0F1909D02F57572D00BC8EF2 /* Assets.xcassets in Resources */,
@@ -330,6 +348,7 @@
 				0F190A1C2F72B0D100BC8EF2 /* HomeViewModel.swift in Sources */,
 				0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */,
 				0F190A092F688B6500BC8EF2 /* Tags.swift in Sources */,
+				0F5670942F91457F005FE755 /* ProfileViewModel.swift in Sources */,
 				0F1909FD2F615DE000BC8EF2 /* AuthManager.swift in Sources */,
 				0F1909F12F603C2B00BC8EF2 /* Clubs.swift in Sources */,
 				0F190A182F72B0B200BC8EF2 /* TagsViewModel.swift in Sources */,
@@ -339,6 +358,7 @@
 				0F1909D52F57572D00BC8EF2 /* SceneDelegate.swift in Sources */,
 				0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */,
 				0F1909E02F575F0500BC8EF2 /* MainTabBarController.swift in Sources */,
+				0F5670912F914568005FE755 /* ProfileViewController.swift in Sources */,
 				0F1909F92F615A7B00BC8EF2 /* LoginViewController.swift in Sources */,
 				0F190A492F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift in Sources */,
 				0F190A202F72CAF300BC8EF2 /* TagsCollectionViewCell.swift in Sources */,

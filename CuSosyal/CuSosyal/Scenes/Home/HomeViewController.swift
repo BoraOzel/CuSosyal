@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
 
 
     @IBAction func profileButtonClicked(_ sender: Any) {
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
 

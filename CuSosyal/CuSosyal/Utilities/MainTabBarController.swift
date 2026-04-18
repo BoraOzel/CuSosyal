@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainTabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,11 +25,13 @@ final class MainTabBarController: UITabBarController {
     func configureTabBarAppearance() {
         let appearance = UITabBarAppearance()
         
-        appearance.backgroundColor = UIColor.green
-        appearance.configureWithDefaultBackground()
+        appearance.configureWithOpaqueBackground()
         
         tabBar.standardAppearance = appearance
         tabBar.scrollEdgeAppearance = appearance
+        
+        tabBar.tintColor = UIColor.accent
+        tabBar.unselectedItemTintColor = UIColor.darkGray
     }
-
+    
 }
