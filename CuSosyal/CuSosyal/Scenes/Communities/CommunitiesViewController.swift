@@ -65,6 +65,26 @@ extension CommunitiesViewController: UICollectionViewDataSource {
     
 }
 
+extension CommunitiesViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.filterCommunities(with: searchText)
+        reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        viewModel.filterCommunities(with: "")
+        reloadData()
+    }
+    
+}
+
 extension CommunitiesViewController: CommunitiesViewControllerInterface {
     
     func setupCollectionView() {
