@@ -13,9 +13,9 @@ protocol LoginViewModelInterface {
 
 class LoginViewModel {
     
-    private let authManager: AuthManagerProtocol
+    private let authManager: AuthManagerInterface
     
-    init(authManager: AuthManagerProtocol = AuthManager.shared) {
+    init(authManager: AuthManagerInterface = AuthManager.shared) {
         self.authManager = authManager
     }
     

@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-protocol AuthManagerProtocol {
+protocol AuthManagerInterface {
     func registerUser(with email: String, password: String, name: String, interestedTags: [Tags]) async throws
     func signIn(with email: String, password: String) async throws
     func signOut() throws
@@ -37,7 +37,7 @@ class AuthManager {
     
 }
 
-extension AuthManager: AuthManagerProtocol {
+extension AuthManager: AuthManagerInterface {
     
     func registerUser(with email: String, password: String, name: String, interestedTags: [Tags]) async throws {
         

@@ -54,6 +54,11 @@
 		0F5670A52F93C41E005FE755 /* CommunitiesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5670A32F93C41E005FE755 /* CommunitiesCollectionViewCell.xib */; };
 		0F5670A72F93C981005FE755 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670A62F93C981005FE755 /* NetworkManager.swift */; };
 		0F5670AA2F93D167005FE755 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0F5670A92F93D167005FE755 /* SDWebImage */; };
+		0F5670AE2F94E184005FE755 /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670AC2F94E184005FE755 /* CommunityDetailViewController.swift */; };
+		0F5670AF2F94E184005FE755 /* CommunityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5670AD2F94E184005FE755 /* CommunityDetailViewController.xib */; };
+		0F5670B12F94E197005FE755 /* CommunityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670B02F94E197005FE755 /* CommunityDetailViewModel.swift */; };
+		0F5670B52F94EC18005FE755 /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5670B42F94EC18005FE755 /* EventCollectionViewCell.xib */; };
+		0F5670B62F94EC18005FE755 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670B32F94EC18005FE755 /* EventCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +105,11 @@
 		0F5670A22F93C41E005FE755 /* CommunitiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F5670A32F93C41E005FE755 /* CommunitiesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunitiesCollectionViewCell.xib; sourceTree = "<group>"; };
 		0F5670A62F93C981005FE755 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0F5670AC2F94E184005FE755 /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
+		0F5670AD2F94E184005FE755 /* CommunityDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityDetailViewController.xib; sourceTree = "<group>"; };
+		0F5670B02F94E197005FE755 /* CommunityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewModel.swift; sourceTree = "<group>"; };
+		0F5670B32F94EC18005FE755 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		0F5670B42F94EC18005FE755 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +187,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0F5670AB2F94E169005FE755 /* CommunityDetail */,
 				0F5670952F93A46F005FE755 /* Communities */,
 				0F56708E2F91454B005FE755 /* Profile */,
 				0F190A0F2F6898FD00BC8EF2 /* Tags */,
@@ -260,6 +271,7 @@
 		0F190A1D2F72CA8300BC8EF2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				0F5670B22F94EBF6005FE755 /* EventCollectionViewCell */,
 				0F5670A12F93C400005FE755 /* CommunitiesCollectionViewCell */,
 				0F56709C2F93B385005FE755 /* TagsCollectionViewCell */,
 			);
@@ -302,6 +314,25 @@
 				0F5670A32F93C41E005FE755 /* CommunitiesCollectionViewCell.xib */,
 			);
 			path = CommunitiesCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		0F5670AB2F94E169005FE755 /* CommunityDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0F5670AC2F94E184005FE755 /* CommunityDetailViewController.swift */,
+				0F5670B02F94E197005FE755 /* CommunityDetailViewModel.swift */,
+				0F5670AD2F94E184005FE755 /* CommunityDetailViewController.xib */,
+			);
+			path = CommunityDetail;
+			sourceTree = "<group>";
+		};
+		0F5670B22F94EBF6005FE755 /* EventCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0F5670B32F94EC18005FE755 /* EventCollectionViewCell.swift */,
+				0F5670B42F94EC18005FE755 /* EventCollectionViewCell.xib */,
+			);
+			path = EventCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +408,7 @@
 			files = (
 				0F5670922F914568005FE755 /* ProfileViewController.xib in Resources */,
 				0F5670A52F93C41E005FE755 /* CommunitiesCollectionViewCell.xib in Resources */,
+				0F5670B52F94EC18005FE755 /* EventCollectionViewCell.xib in Resources */,
 				0F1909FA2F615A7B00BC8EF2 /* LoginViewController.xib in Resources */,
 				0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */,
 				0F1909D02F57572D00BC8EF2 /* Assets.xcassets in Resources */,
@@ -386,6 +418,7 @@
 				0F1909E42F57623E00BC8EF2 /* HomeViewController.xib in Resources */,
 				0F5670992F93A4A1005FE755 /* CommunitiesViewController.xib in Resources */,
 				0F190A0E2F68931600BC8EF2 /* RegisterViewController.xib in Resources */,
+				0F5670AF2F94E184005FE755 /* CommunityDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +445,9 @@
 				0F5670A02F93C2C5005FE755 /* SingleColumnDynamicHeightFlowLayout.swift in Sources */,
 				0F5670982F93A4A0005FE755 /* CommunitiesViewController.swift in Sources */,
 				0F56709B2F93A4B8005FE755 /* CommunitiesViewModel.swift in Sources */,
+				0F5670B62F94EC18005FE755 /* EventCollectionViewCell.swift in Sources */,
 				0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */,
+				0F5670AE2F94E184005FE755 /* CommunityDetailViewController.swift in Sources */,
 				0F190A0D2F68931600BC8EF2 /* RegisterViewController.swift in Sources */,
 				0F1909D52F57572D00BC8EF2 /* SceneDelegate.swift in Sources */,
 				0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */,
@@ -424,6 +459,7 @@
 				0F190A202F72CAF300BC8EF2 /* TagsCollectionViewCell.swift in Sources */,
 				0F190A052F66BDAD00BC8EF2 /* LoginViewModel.swift in Sources */,
 				0F1909F52F603D5D00BC8EF2 /* Events.swift in Sources */,
+				0F5670B12F94E197005FE755 /* CommunityDetailViewModel.swift in Sources */,
 				0F1909F32F603CC700BC8EF2 /* Users.swift in Sources */,
 				0F1909E32F57623E00BC8EF2 /* HomeViewController.swift in Sources */,
 			);

@@ -9,6 +9,7 @@ import FirebaseFirestore
 
 protocol NetworkManagerInterface: AnyObject {
     func fetchCommunities() async throws -> [Communities]
+    func fetchEvents(for communityId: String) async throws -> [Events]
 }
 
 class NetworkManager: NetworkManagerInterface {
@@ -25,7 +26,23 @@ class NetworkManager: NetworkManagerInterface {
             do {
                 return try document.data(as: Communities.self)
             } catch {
-                print("⚠️ fetchCommunities failed: \(error.localizedDescription)")
+                print("fetchCommunities failed: \(error.localizedDescription)")
+                return nil
+            }
+        }
+    }
+    
+    func fetchEvents(for communityId: String) async throws -> [Events] {
+        let snapshot = try await db
+            .collection("events")
+            .whereField("clubId", isEqualTo: communityId)
+            .getDocuments()
+        
+        return snapshot.documents.compactMap { document in
+            do {
+                return try document.data(as: Events.self)
+            } catch {
+                print("fetchEvents failed: \(error.localizedDescription)")
                 return nil
             }
         }

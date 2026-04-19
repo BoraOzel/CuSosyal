@@ -42,7 +42,11 @@ class CommunitiesViewController: UIViewController {
 extension CommunitiesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let community = viewModel.getItem(at: indexPath.item) else { return }
         
+        let detailViewModel = CommunityDetailViewModel(community: community)
+        let detailVC = CommunityDetailViewController(viewModel: detailViewModel)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }
