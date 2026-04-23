@@ -18,4 +18,6 @@ struct Users: Codable {
     let name: String
     let email: String
     let interestedTags: [Tags]?
+    
+    var reservedEvents: [String]?
 }

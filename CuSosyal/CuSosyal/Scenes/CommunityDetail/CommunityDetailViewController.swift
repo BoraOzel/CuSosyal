@@ -47,7 +47,14 @@ class CommunityDetailViewController: UIViewController {
 extension CommunityDetailViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let event = viewModel.getEvent(at: indexPath.item) else { return }
         
+        let detailViewModel = EventDetailViewModel(
+            event: event,
+            logoUrl: viewModel.community.logoUrl
+        )
+        let detailVC = EventDetailViewController(viewModel: detailViewModel)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }
@@ -97,7 +104,7 @@ extension CommunityDetailViewController: CommunityDetailViewControllerInterface 
         Task { [weak self] in
             guard let self else { return }
             await viewModel.getEvents()
-            await MainActor.run { updateEventsUI() }
+            await MainActor.run { self.updateEventsUI() }
         }
     }
     

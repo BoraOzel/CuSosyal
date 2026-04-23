@@ -63,8 +63,8 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     func configure(with event: Events, logoUrl: String) {
         titleLabel.text = event.title
-        locationLabel.text = event.location
-        dateLabel.text = Self.dateFormatter.string(from: event.date)
+        locationLabel.text = "📍\(event.location)"
+        dateLabel.text = "🗓️\(Self.dateFormatter.string(from: event.date))"
         imageView.sd_setImage(with: URL(string: logoUrl))
     }
     

@@ -14,4 +14,5 @@ struct Events: Codable {
     let title: String
     let location: String
     let date: Date
+    let description: String
 }

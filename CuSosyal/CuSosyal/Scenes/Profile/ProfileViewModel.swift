@@ -14,7 +14,11 @@ protocol ProfileViewModelInterface {
 
 class ProfileViewModel {
     
-    private let authManager = AuthManager.shared
+    private let authManager: any AuthManagerInterface
+    
+    init(authManager: any AuthManagerInterface = AuthManager.shared) {
+        self.authManager = authManager
+    }
     
 }
 

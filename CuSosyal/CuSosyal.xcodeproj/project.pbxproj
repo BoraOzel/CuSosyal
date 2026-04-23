@@ -59,6 +59,9 @@
 		0F5670B12F94E197005FE755 /* CommunityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670B02F94E197005FE755 /* CommunityDetailViewModel.swift */; };
 		0F5670B52F94EC18005FE755 /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5670B42F94EC18005FE755 /* EventCollectionViewCell.xib */; };
 		0F5670B62F94EC18005FE755 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670B32F94EC18005FE755 /* EventCollectionViewCell.swift */; };
+		0F5670BA2F9A21DD005FE755 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5670B92F9A21DD005FE755 /* EventDetailViewController.xib */; };
+		0F5670BB2F9A21DD005FE755 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670B82F9A21DD005FE755 /* EventDetailViewController.swift */; };
+		0F5670BD2F9A21F0005FE755 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670BC2F9A21F0005FE755 /* EventDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +113,9 @@
 		0F5670B02F94E197005FE755 /* CommunityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewModel.swift; sourceTree = "<group>"; };
 		0F5670B32F94EC18005FE755 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F5670B42F94EC18005FE755 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
+		0F5670B82F9A21DD005FE755 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		0F5670B92F9A21DD005FE755 /* EventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
+		0F5670BC2F9A21F0005FE755 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +193,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0F5670B72F9A21BD005FE755 /* EventDetail */,
 				0F5670AB2F94E169005FE755 /* CommunityDetail */,
 				0F5670952F93A46F005FE755 /* Communities */,
 				0F56708E2F91454B005FE755 /* Profile */,
@@ -335,6 +342,16 @@
 			path = EventCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		0F5670B72F9A21BD005FE755 /* EventDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0F5670B82F9A21DD005FE755 /* EventDetailViewController.swift */,
+				0F5670BC2F9A21F0005FE755 /* EventDetailViewModel.swift */,
+				0F5670B92F9A21DD005FE755 /* EventDetailViewController.xib */,
+			);
+			path = EventDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -412,6 +429,7 @@
 				0F1909FA2F615A7B00BC8EF2 /* LoginViewController.xib in Resources */,
 				0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */,
 				0F1909D02F57572D00BC8EF2 /* Assets.xcassets in Resources */,
+				0F5670BA2F9A21DD005FE755 /* EventDetailViewController.xib in Resources */,
 				0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */,
 				0F190A132F68990C00BC8EF2 /* TagsViewController.xib in Resources */,
 				0F190A032F66A5F000BC8EF2 /* GoogleService-Info.plist in Resources */,
@@ -433,6 +451,7 @@
 				0F190A012F66A32A00BC8EF2 /* Router.swift in Sources */,
 				0F190A122F68990C00BC8EF2 /* TagsViewController.swift in Sources */,
 				0F190A162F69A06200BC8EF2 /* Tags+UI.swift in Sources */,
+				0F5670BD2F9A21F0005FE755 /* EventDetailViewModel.swift in Sources */,
 				0F190A1C2F72B0D100BC8EF2 /* HomeViewModel.swift in Sources */,
 				0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */,
 				0F190A092F688B6500BC8EF2 /* Tags.swift in Sources */,
@@ -461,6 +480,7 @@
 				0F1909F52F603D5D00BC8EF2 /* Events.swift in Sources */,
 				0F5670B12F94E197005FE755 /* CommunityDetailViewModel.swift in Sources */,
 				0F1909F32F603CC700BC8EF2 /* Users.swift in Sources */,
+				0F5670BB2F9A21DD005FE755 /* EventDetailViewController.swift in Sources */,
 				0F1909E32F57623E00BC8EF2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
