@@ -48,7 +48,6 @@ class EventCollectionViewCell: UICollectionViewCell {
     private func setupAppearance() {
         containerView.layer.cornerRadius = 16
         containerView.layer.masksToBounds = true
-        containerView.backgroundColor = .white
         
         imageView.layer.borderWidth = 0.5
         imageView.layer.borderColor = UIColor.systemGray2.cgColor

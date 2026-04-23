@@ -35,7 +35,6 @@ class EventDetailViewModel {
 extension EventDetailViewModel: EventDetailViewModelInterface {
     
     func fetchRegistrationStatus() async {
-        
         do {
             let user = try await networkManager.fetchCurrentUser()
             await MainActor.run {
@@ -46,11 +45,9 @@ extension EventDetailViewModel: EventDetailViewModelInterface {
         catch {
             print("fetchRegistrationStatus failed: \(error.localizedDescription)")
         }
-        
     }
     
     func toggleRegistration() async {
-        
         guard let userId = Auth.auth().currentUser?.uid,
               let eventId = event.id
         else { return }
@@ -69,7 +66,6 @@ extension EventDetailViewModel: EventDetailViewModelInterface {
         catch {
             print("toggleRegistration failed: \(error.localizedDescription)")
         }
-        
     }
     
 }

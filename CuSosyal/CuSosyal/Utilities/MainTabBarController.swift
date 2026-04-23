@@ -17,7 +17,7 @@ final class MainTabBarController: UITabBarController {
     }
     
     func createHomeNC() -> UINavigationController {
-        let homeVC = HomeViewController()
+        let homeVC = HomeViewController(viewModel: HomeViewModel())
         homeVC.tabBarItem = UITabBarItem(title: "Anasayfa", image: UIImage(systemName: "house.fill"), tag: 0)
         return UINavigationController(rootViewController: homeVC)
     }

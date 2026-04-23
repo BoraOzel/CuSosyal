@@ -50,7 +50,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" name="accentColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="AaL-qu-S0M" secondAttribute="bottom" constant="5" id="FUb-hY-U3O"/>
