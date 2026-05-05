@@ -8,7 +8,8 @@
 import UIKit
 
 protocol HomeViewControllerInterface {
-    func fetchUser()
+    func fetchHomeData()
+    func setupInterestCollectionView()
 }
 
 class HomeViewController: UIViewController {
@@ -31,7 +32,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUser()
+        setupInterestCollectionView()
+        fetchHomeData()
     }
     
     
@@ -42,16 +44,68 @@ class HomeViewController: UIViewController {
     
 }
 
+extension HomeViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.numberOfSuggestedCommunities()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestedCollectionViewCell",
+                                                            for: indexPath) as? SuggestedCollectionViewCell,
+              let community = viewModel.getSuggestedCommunity(at: indexPath.item) else { return UICollectionViewCell() }
+        
+        cell.configure(data: community)
+        return cell
+    }
+    
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let community = viewModel.getSuggestedCommunity(at: indexPath.item) else { return }
+        let detailViewModel = CommunityDetailViewModel(community: community)
+        let detailViewController = CommunityDetailViewController(viewModel: detailViewModel)
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 160, height: 160)
+    }
+}
+
 extension HomeViewController: HomeViewControllerInterface {
     
-    func fetchUser() {
+    func fetchHomeData() {
         Task { [weak self] in
             guard let self else { return }
-            await viewModel.fetchUser()
+            await viewModel.fetchHomeData()
             await MainActor.run {
                 self.welcomeLabel.text = "Hoşgeldin, \(self.viewModel.userName) 👋🏻"
+                self.interestCollectionView.reloadData()
             }
         }
+    }
+    
+    func setupInterestCollectionView() {
+        interestCollectionView.delegate = self
+        interestCollectionView.dataSource = self
+        interestCollectionView.register(UINib(nibName: "SuggestedCollectionViewCell", bundle: nil),
+                                        forCellWithReuseIdentifier: "SuggestedCollectionViewCell")
+        interestCollectionView.showsHorizontalScrollIndicator = false
+        
+        if let layout = interestCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        
     }
     
 }

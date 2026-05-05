@@ -125,6 +125,5 @@ extension CommunitiesViewController: CommunitiesViewControllerInterface {
 
 
 extension CommunitiesViewController: DynamicFlowLayoutCustomizable {
-    
     typealias CustomLayout = SingleColumnDynamicHeightFlowLayout
 }

@@ -62,6 +62,8 @@
 		0F5670BA2F9A21DD005FE755 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5670B92F9A21DD005FE755 /* EventDetailViewController.xib */; };
 		0F5670BB2F9A21DD005FE755 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670B82F9A21DD005FE755 /* EventDetailViewController.swift */; };
 		0F5670BD2F9A21F0005FE755 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670BC2F9A21F0005FE755 /* EventDetailViewModel.swift */; };
+		0FF706472FAA21B500B7C17B /* SuggestedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706452FAA21B500B7C17B /* SuggestedCollectionViewCell.swift */; };
+		0FF706482FAA21B500B7C17B /* SuggestedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706462FAA21B500B7C17B /* SuggestedCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +118,8 @@
 		0F5670B82F9A21DD005FE755 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		0F5670B92F9A21DD005FE755 /* EventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		0F5670BC2F9A21F0005FE755 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
+		0FF706452FAA21B500B7C17B /* SuggestedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCollectionViewCell.swift; sourceTree = "<group>"; };
+		0FF706462FAA21B500B7C17B /* SuggestedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +282,7 @@
 		0F190A1D2F72CA8300BC8EF2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				0FF706442FAA218A00B7C17B /* SuggestedCollectionViewCell */,
 				0F5670B22F94EBF6005FE755 /* EventCollectionViewCell */,
 				0F5670A12F93C400005FE755 /* CommunitiesCollectionViewCell */,
 				0F56709C2F93B385005FE755 /* TagsCollectionViewCell */,
@@ -350,6 +355,15 @@
 				0F5670B92F9A21DD005FE755 /* EventDetailViewController.xib */,
 			);
 			path = EventDetail;
+			sourceTree = "<group>";
+		};
+		0FF706442FAA218A00B7C17B /* SuggestedCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0FF706452FAA21B500B7C17B /* SuggestedCollectionViewCell.swift */,
+				0FF706462FAA21B500B7C17B /* SuggestedCollectionViewCell.xib */,
+			);
+			path = SuggestedCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +447,7 @@
 				0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */,
 				0F190A132F68990C00BC8EF2 /* TagsViewController.xib in Resources */,
 				0F190A032F66A5F000BC8EF2 /* GoogleService-Info.plist in Resources */,
+				0FF706482FAA21B500B7C17B /* SuggestedCollectionViewCell.xib in Resources */,
 				0F1909E42F57623E00BC8EF2 /* HomeViewController.xib in Resources */,
 				0F5670992F93A4A1005FE755 /* CommunitiesViewController.xib in Resources */,
 				0F190A0E2F68931600BC8EF2 /* RegisterViewController.xib in Resources */,
@@ -453,6 +468,7 @@
 				0F190A162F69A06200BC8EF2 /* Tags+UI.swift in Sources */,
 				0F5670BD2F9A21F0005FE755 /* EventDetailViewModel.swift in Sources */,
 				0F190A1C2F72B0D100BC8EF2 /* HomeViewModel.swift in Sources */,
+				0FF706472FAA21B500B7C17B /* SuggestedCollectionViewCell.swift in Sources */,
 				0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */,
 				0F190A092F688B6500BC8EF2 /* Tags.swift in Sources */,
 				0F5670942F91457F005FE755 /* ProfileViewModel.swift in Sources */,

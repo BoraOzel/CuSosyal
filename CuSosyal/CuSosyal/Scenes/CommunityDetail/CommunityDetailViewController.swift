@@ -98,6 +98,7 @@ extension CommunityDetailViewController: CommunityDetailViewControllerInterface 
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
         eventsCollectionView.register(UINib(nibName: "EventCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "EventCollectionViewCell")
+        eventsCollectionView.showsHorizontalScrollIndicator = false
     }
     
     func fetchEvents() {
