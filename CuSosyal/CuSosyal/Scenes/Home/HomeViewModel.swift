@@ -16,6 +16,10 @@ protocol HomeViewModelInterface {
     func fetchHomeData() async
     func numberOfSuggestedCommunities() -> Int
     func getSuggestedCommunity(at index: Int) -> Communities?
+    func numberOfSavedEvents() -> Int
+    func getSavedEvent(at index: Int) -> Events?
+    func fetchSavedEvents() async
+    func getCommunity(for event: Events) -> Communities?
 }
 
 class HomeViewModel {
@@ -24,6 +28,8 @@ class HomeViewModel {
     
     private(set) var userName: String = ""
     private(set) var suggestedCommunities: [Communities] = []
+    private(set) var savedEvents: [Events] = []
+    private var cachedCommunities: [Communities] = []
     
     init(networkManager: any NetworkManagerInterface = NetworkManager.shared) {
         self.networkManager = networkManager
@@ -64,6 +70,7 @@ extension HomeViewModel: HomeViewModelInterface {
     func fetchHomeData() async {
         await fetchUser()
         await fetchSuggestedCommunities()
+        await fetchSavedEvents()
     }
     
     func numberOfSuggestedCommunities() -> Int {
@@ -74,4 +81,37 @@ extension HomeViewModel: HomeViewModelInterface {
         guard suggestedCommunities.indices.contains(index) else { return nil }
         return suggestedCommunities[index]
     }
+    
+    func numberOfSavedEvents() -> Int {
+        return savedEvents.count
+    }
+    
+    func getSavedEvent(at index: Int) -> Events? {
+        guard savedEvents.indices.contains(index) else { return nil }
+        return savedEvents[index]
+    }
+    
+    func fetchSavedEvents() async {
+        do {
+            let user = try await networkManager.fetchCurrentUser()
+            let eventIds = user.reservedEvents ?? []
+            guard !eventIds.isEmpty else { return }
+            
+            async let events = networkManager.fetchSavedEvents(eventIds: eventIds)
+            async let communities = networkManager.fetchCommunities()
+            let (fetchedEvents, fetchedCommunities) = try await (events, communities)
+            
+            await MainActor.run {
+                self.savedEvents = fetchedEvents
+                self.cachedCommunities = fetchedCommunities
+            }
+        } catch {
+            print("fetchSavedEvents failed: \(error.localizedDescription)")
+        }
+    }
+    
+    func getCommunity(for event: Events) -> Communities? {
+        return cachedCommunities.first { $0.id == event.clubId }
+    }
+    
 }

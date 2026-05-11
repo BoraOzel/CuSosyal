@@ -14,6 +14,7 @@ protocol NetworkManagerInterface: AnyObject {
     func fetchCurrentUser() async throws -> Users
     func joinEvent(userId: String, eventId: String) async throws
     func leaveEvent(userId: String, eventId: String) async throws
+    func fetchSavedEvents(eventIds: [String]) async throws -> [Events]
 }
 
 class NetworkManager: NetworkManagerInterface {
@@ -67,6 +68,19 @@ class NetworkManager: NetworkManagerInterface {
     
     func leaveEvent(userId: String, eventId: String) async throws {
         try await db.collection("users").document(userId).updateData(["reservedEvents" : FieldValue.arrayRemove([eventId])])
+    }
+    
+    func fetchSavedEvents(eventIds: [String]) async throws -> [Events] {
+        guard !eventIds.isEmpty else { return [] }
+        
+        var events: [Events] = []
+        for eventId in eventIds {
+            let document = try await db.collection("events").document(eventId).getDocument()
+            if let event = try? document.data(as: Events.self) {
+                events.append(event)
+            }
+        }
+        return events
     }
     
 }

@@ -10,6 +10,7 @@ import UIKit
 protocol HomeViewControllerInterface {
     func fetchHomeData()
     func setupInterestCollectionView()
+    func setupSavedEventsCollectionView()
 }
 
 class HomeViewController: UIViewController {
@@ -33,6 +34,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterestCollectionView()
+        setupSavedEventsCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchHomeData()
     }
     
@@ -47,28 +52,57 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.numberOfSuggestedCommunities()
+        if collectionView == interestCollectionView {
+            return viewModel.numberOfSuggestedCommunities()
+        }
+        else {
+            return viewModel.numberOfSavedEvents()
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestedCollectionViewCell",
-                                                            for: indexPath) as? SuggestedCollectionViewCell,
-              let community = viewModel.getSuggestedCommunity(at: indexPath.item) else { return UICollectionViewCell() }
-        
-        cell.configure(data: community)
-        return cell
+        if collectionView == interestCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestedCollectionViewCell",
+                                                                for: indexPath) as? SuggestedCollectionViewCell,
+                  let community = viewModel.getSuggestedCommunity(at: indexPath.item) else { return UICollectionViewCell() }
+            
+            cell.configure(data: community)
+            return cell
+        }
+        else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCollectionViewCell",
+                                                                for: indexPath) as? EventCollectionViewCell,
+                  let event = viewModel.getSavedEvent(at: indexPath.item)
+            else { return UICollectionViewCell() }
+            
+            let logoUrl = viewModel.getCommunity(for: event)?.logoUrl ?? ""
+            cell.configure(with: event, logoUrl: logoUrl)
+            return cell
+        }
     }
     
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let community = viewModel.getSuggestedCommunity(at: indexPath.item) else { return }
-        let detailViewModel = CommunityDetailViewModel(community: community)
-        let detailViewController = CommunityDetailViewController(viewModel: detailViewModel)
+        if collectionView == interestCollectionView {
+            guard let community = viewModel.getSuggestedCommunity(at: indexPath.item) else { return }
+            let detailViewModel = CommunityDetailViewModel(community: community)
+            let detailViewController = CommunityDetailViewController(viewModel: detailViewModel)
+            
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
+        else {
+            guard let event = viewModel.getSavedEvent(at: indexPath.item) else { return }
+            let community = viewModel.getCommunity(for: event)
+            let detailViewModel = EventDetailViewModel(event: event, logoUrl: community?.logoUrl)
+            let detailVC = EventDetailViewController(viewModel: detailViewModel)
+            
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
         
-        navigationController?.pushViewController(detailViewController, animated: true)
     }
     
 }
@@ -78,7 +112,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: 160)
+        if collectionView == interestCollectionView {
+            return CGSize(width: 160, height: 160)
+        } else {
+            return CGSize(width: 200, height: 200)
+        }
     }
 }
 
@@ -91,6 +129,7 @@ extension HomeViewController: HomeViewControllerInterface {
             await MainActor.run {
                 self.welcomeLabel.text = "Hoşgeldin, \(self.viewModel.userName) 👋🏻"
                 self.interestCollectionView.reloadData()
+                self.savedEventsCollectionView.reloadData()
             }
         }
     }
@@ -105,7 +144,18 @@ extension HomeViewController: HomeViewControllerInterface {
         if let layout = interestCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
+    }
+    
+    func setupSavedEventsCollectionView() {
+        savedEventsCollectionView.delegate = self
+        savedEventsCollectionView.dataSource = self
+        savedEventsCollectionView.register(UINib(nibName: "EventCollectionViewCell", bundle: nil),
+                                           forCellWithReuseIdentifier: "EventCollectionViewCell")
+        savedEventsCollectionView.showsHorizontalScrollIndicator = false
         
+        if let layout = savedEventsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
     }
     
 }

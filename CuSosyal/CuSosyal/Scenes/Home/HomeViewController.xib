@@ -30,16 +30,16 @@
                             <rect key="frame" x="0.0" y="0.0" width="383" height="656"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="AVZ-Tp-Vvj">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="34.333333333333336"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="24"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoşgeldin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV8-7D-xQW">
-                                            <rect key="frame" x="0.0" y="0.0" width="99.333333333333329" height="34.333333333333336"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="99.333333333333329" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmm-0r-15o">
-                                            <rect key="frame" x="333.33333333333331" y="0.0" width="49.666666666666686" height="34.333333333333336"/>
+                                            <rect key="frame" x="333.33333333333331" y="0.0" width="49.666666666666686" height="24"/>
                                             <color key="tintColor" name="primaryColor"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="person.circle.fill" catalog="system"/>
@@ -50,31 +50,31 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4RQ-oS-6Mv">
-                                    <rect key="frame" x="0.0" y="71" width="383" height="156"/>
+                                    <rect key="frame" x="0.0" y="34" width="383" height="246"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaydedilen Etkinlikler" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQv-Bv-hNm">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="27.666666666666668"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="26"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KXO-3p-JnW">
-                                            <rect key="frame" x="0.0" y="27.666666666666657" width="383" height="128.33333333333334"/>
+                                            <rect key="frame" x="0.0" y="26" width="383" height="220"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="220" id="LcS-l2-74W"/>
+                                            </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aye-xa-4ar">
-                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="itemSize" width="128" height="220"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                         </collectionView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="156" id="JJL-oS-dyN"/>
-                                    </constraints>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1IZ-4d-vcD">
-                                    <rect key="frame" x="0.0" y="263.33333333333331" width="383" height="200"/>
+                                    <rect key="frame" x="0.0" y="290" width="383" height="200"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İlgi Alanlarınıza Özel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXN-1A-UdP">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="27.666666666666668"/>
