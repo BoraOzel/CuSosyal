@@ -40,13 +40,13 @@ class EventCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        imageView.layer.cornerRadius = 12
+        imageView.applyCornerRadius(12)
         imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         imageView.clipsToBounds = true
     }
     
     private func setupAppearance() {
-        containerView.layer.cornerRadius = 16
+        containerView.applyCornerRadius(16)
         containerView.layer.masksToBounds = true
         
         imageView.layer.borderWidth = 0.5

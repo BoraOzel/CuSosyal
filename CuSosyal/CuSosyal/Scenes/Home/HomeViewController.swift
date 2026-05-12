@@ -12,6 +12,7 @@ protocol HomeViewControllerInterface {
     func setupInterestCollectionView()
     func setupSavedEventsCollectionView()
     func updateSavedEventsLabel()
+    func setupAskAiView()
 }
 
 class HomeViewController: UIViewController {
@@ -37,10 +38,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupInterestCollectionView()
         setupSavedEventsCollectionView()
+        setupAskAiView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchHomeData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        askAiView.updateGradientFrame()
     }
     
     
@@ -48,6 +55,9 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
+    @objc func askAiTapped() {
+        
+    }
     
 }
 
@@ -168,6 +178,22 @@ extension HomeViewController: HomeViewControllerInterface {
         else {
             emptyEventLabel.isHidden = true
         }
+    }
+    
+    func setupAskAiView() {
+        askAiView.applyCornerRadius(20)
+        askAiView.applyShadow()
+        askAiView.applyGradient(
+            colors: [
+                UIColor(red: 0.22, green: 0.56, blue: 0.24, alpha: 1),
+                UIColor(red: 0.54, green: 0.76, blue: 0.29, alpha: 1)
+            ],
+            cornerRadius: 20
+        )
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(askAiTapped))
+        askAiView.addGestureRecognizer(tap)
+        askAiView.isUserInteractionEnabled = true
     }
     
 }

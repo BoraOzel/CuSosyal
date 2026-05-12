@@ -32,7 +32,7 @@ class SuggestedCollectionViewCell: UICollectionViewCell {
     }
     
     func setupAppearance() {
-        containerView.layer.cornerRadius = 20
+        containerView.applyCornerRadius(20)
         containerView.layer.masksToBounds = true
         
         layer.cornerRadius = 20

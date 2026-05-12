@@ -64,6 +64,7 @@
 		0F5670BD2F9A21F0005FE755 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670BC2F9A21F0005FE755 /* EventDetailViewModel.swift */; };
 		0FF706472FAA21B500B7C17B /* SuggestedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706452FAA21B500B7C17B /* SuggestedCollectionViewCell.swift */; };
 		0FF706482FAA21B500B7C17B /* SuggestedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706462FAA21B500B7C17B /* SuggestedCollectionViewCell.xib */; };
+		0FF7064A2FB3420800B7C17B /* UIView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706492FB3420800B7C17B /* UIView+Appearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		0F5670BC2F9A21F0005FE755 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 		0FF706452FAA21B500B7C17B /* SuggestedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FF706462FAA21B500B7C17B /* SuggestedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCollectionViewCell.xib; sourceTree = "<group>"; };
+		0FF706492FB3420800B7C17B /* UIView+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Appearance.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				0F190A152F69A06200BC8EF2 /* Tags+UI.swift */,
+				0FF706492FB3420800B7C17B /* UIView+Appearance.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			files = (
 				0F56709E2F93C200005FE755 /* DynamicFlowLayoutCustomizable.swift in Sources */,
 				0F190A012F66A32A00BC8EF2 /* Router.swift in Sources */,
+				0FF7064A2FB3420800B7C17B /* UIView+Appearance.swift in Sources */,
 				0F190A122F68990C00BC8EF2 /* TagsViewController.swift in Sources */,
 				0F190A162F69A06200BC8EF2 /* Tags+UI.swift in Sources */,
 				0F5670BD2F9A21F0005FE755 /* EventDetailViewModel.swift in Sources */,
