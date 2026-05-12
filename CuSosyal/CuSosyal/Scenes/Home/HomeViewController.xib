@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CuSosyal" customModuleProvider="target">
             <connections>
                 <outlet property="askAiView" destination="HWj-U2-KGt" id="cND-J5-spo"/>
+                <outlet property="emptyEventLabel" destination="nMt-96-Kdq" id="K5k-jf-tzD"/>
                 <outlet property="interestCollectionView" destination="xBu-AS-7gw" id="smw-TG-7kr"/>
                 <outlet property="savedEventsCollectionView" destination="KXO-3p-JnW" id="L0i-bC-pV7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,20 +27,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlP-7z-AQ3">
                     <rect key="frame" x="5" y="123" width="383" height="656"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="boL-mE-8fr">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="boL-mE-8fr">
                             <rect key="frame" x="0.0" y="0.0" width="383" height="656"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="AVZ-Tp-Vvj">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="24"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="34.333333333333336"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoşgeldin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV8-7D-xQW">
-                                            <rect key="frame" x="0.0" y="0.0" width="99.333333333333329" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="99.333333333333329" height="34.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmm-0r-15o">
-                                            <rect key="frame" x="333.33333333333331" y="0.0" width="49.666666666666686" height="24"/>
+                                            <rect key="frame" x="333.33333333333331" y="0.0" width="49.666666666666686" height="34.333333333333336"/>
                                             <color key="tintColor" name="primaryColor"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="person.circle.fill" catalog="system"/>
@@ -50,19 +51,28 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4RQ-oS-6Mv">
-                                    <rect key="frame" x="0.0" y="34" width="383" height="246"/>
+                                    <rect key="frame" x="0.0" y="44.333333333333343" width="383" height="236.00000000000003"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaydedilen Etkinlikler" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQv-Bv-hNm">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="WQS-RG-Zhk"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Herhangi bir etkinliğe kayıt olmadınız." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMt-96-Kdq">
+                                            <rect key="frame" x="0.0" y="26" width="383" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KXO-3p-JnW">
-                                            <rect key="frame" x="0.0" y="26" width="383" height="220"/>
+                                            <rect key="frame" x="0.0" y="26" width="383" height="210"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="220" id="LcS-l2-74W"/>
+                                                <constraint firstAttribute="height" constant="210" id="LcS-l2-74W"/>
                                             </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aye-xa-4ar">
                                                 <size key="itemSize" width="128" height="220"/>

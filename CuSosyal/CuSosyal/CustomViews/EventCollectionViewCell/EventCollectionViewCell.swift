@@ -50,13 +50,13 @@ class EventCollectionViewCell: UICollectionViewCell {
         containerView.layer.masksToBounds = true
         
         imageView.layer.borderWidth = 0.5
-        imageView.layer.borderColor = UIColor.systemGray2.cgColor
+        imageView.layer.borderColor = UIColor.accent.cgColor
         
-        layer.cornerRadius = 16
+        layer.cornerRadius = 20
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.15
-        layer.shadowOffset = CGSize(width: 0, height: 4)
-        layer.shadowRadius = 8
+        layer.shadowOpacity = 0.2
+        layer.shadowOffset = CGSize(width: 0, height: 3)
+        layer.shadowRadius = 6
     }
     
     

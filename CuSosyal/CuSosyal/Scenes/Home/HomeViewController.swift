@@ -11,6 +11,7 @@ protocol HomeViewControllerInterface {
     func fetchHomeData()
     func setupInterestCollectionView()
     func setupSavedEventsCollectionView()
+    func updateSavedEventsLabel()
 }
 
 class HomeViewController: UIViewController {
@@ -19,6 +20,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var interestCollectionView: UICollectionView!
     @IBOutlet weak var askAiView: UIView!
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var emptyEventLabel: UILabel!
     
     private let viewModel: HomeViewModelInterface
     
@@ -130,6 +132,7 @@ extension HomeViewController: HomeViewControllerInterface {
                 self.welcomeLabel.text = "Hoşgeldin, \(self.viewModel.userName) 👋🏻"
                 self.interestCollectionView.reloadData()
                 self.savedEventsCollectionView.reloadData()
+                self.updateSavedEventsLabel()
             }
         }
     }
@@ -155,6 +158,15 @@ extension HomeViewController: HomeViewControllerInterface {
         
         if let layout = savedEventsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
+        }
+    }
+    
+    func updateSavedEventsLabel() {
+        if viewModel.numberOfSavedEvents() == 0 {
+            emptyEventLabel.isHidden = false
+        }
+        else {
+            emptyEventLabel.isHidden = true
         }
     }
     

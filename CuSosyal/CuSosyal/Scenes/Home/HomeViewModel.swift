@@ -95,7 +95,10 @@ extension HomeViewModel: HomeViewModelInterface {
         do {
             let user = try await networkManager.fetchCurrentUser()
             let eventIds = user.reservedEvents ?? []
-            guard !eventIds.isEmpty else { return }
+            guard !eventIds.isEmpty else {
+                await MainActor.run { self.savedEvents = [] }
+                return
+            }
             
             async let events = networkManager.fetchSavedEvents(eventIds: eventIds)
             async let communities = networkManager.fetchCommunities()
