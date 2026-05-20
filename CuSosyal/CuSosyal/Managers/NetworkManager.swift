@@ -10,6 +10,7 @@ import FirebaseAuth
 
 protocol NetworkManagerInterface: AnyObject {
     func fetchCommunities() async throws -> [Communities]
+    func fetchAllEvents() async throws -> [Events]
     func fetchEvents(for communityId: String) async throws -> [Events]
     func fetchCurrentUser() async throws -> Users
     func joinEvent(userId: String, eventId: String) async throws
@@ -37,6 +38,18 @@ class NetworkManager: NetworkManagerInterface {
         }
     }
     
+    func fetchAllEvents() async throws -> [Events] {
+        let snapshot = try await db.collection("events").getDocuments()
+        return snapshot.documents.compactMap { document in
+            do {
+                return try document.data(as: Events.self)
+            } catch {
+                print("fetchAllEvents failed: \(error.localizedDescription)")
+                return nil
+            }
+        }
+    }
+
     func fetchEvents(for communityId: String) async throws -> [Events] {
         let snapshot = try await db
             .collection("events")

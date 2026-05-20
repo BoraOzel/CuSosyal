@@ -65,6 +65,13 @@
 		0FF706472FAA21B500B7C17B /* SuggestedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706452FAA21B500B7C17B /* SuggestedCollectionViewCell.swift */; };
 		0FF706482FAA21B500B7C17B /* SuggestedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706462FAA21B500B7C17B /* SuggestedCollectionViewCell.xib */; };
 		0FF7064A2FB3420800B7C17B /* UIView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706492FB3420800B7C17B /* UIView+Appearance.swift */; };
+		0FF7064D2FB35CF500B7C17B /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 0FF7064C2FB35CF500B7C17B /* GoogleGenerativeAI */; };
+		0FF7064F2FB35D7F00B7C17B /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7064E2FB35D7F00B7C17B /* ChatMessage.swift */; };
+		0FF706532FB35DEF00B7C17B /* AIChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706512FB35DEF00B7C17B /* AIChatViewController.swift */; };
+		0FF706542FB35DEF00B7C17B /* AIChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706522FB35DEF00B7C17B /* AIChatViewController.xib */; };
+		0FF706562FB35DFA00B7C17B /* AIChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706552FB35DFA00B7C17B /* AIChatViewModel.swift */; };
+		0FF706582FB3777800B7C17B /* AIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706572FB3777800B7C17B /* AIManager.swift */; };
+		0FF7065A2FBE170B00B7C17B /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706592FBE170B00B7C17B /* GenerativeAI-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +129,12 @@
 		0FF706452FAA21B500B7C17B /* SuggestedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FF706462FAA21B500B7C17B /* SuggestedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCollectionViewCell.xib; sourceTree = "<group>"; };
 		0FF706492FB3420800B7C17B /* UIView+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Appearance.swift"; sourceTree = "<group>"; };
+		0FF7064E2FB35D7F00B7C17B /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		0FF706512FB35DEF00B7C17B /* AIChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIChatViewController.swift; sourceTree = "<group>"; };
+		0FF706522FB35DEF00B7C17B /* AIChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AIChatViewController.xib; sourceTree = "<group>"; };
+		0FF706552FB35DFA00B7C17B /* AIChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIChatViewModel.swift; sourceTree = "<group>"; };
+		0FF706572FB3777800B7C17B /* AIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIManager.swift; sourceTree = "<group>"; };
+		0FF706592FBE170B00B7C17B /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +146,7 @@
 				0F1909EB2F60373100BC8EF2 /* FirebaseDatabase in Frameworks */,
 				0F1909ED2F60373100BC8EF2 /* FirebaseFirestore in Frameworks */,
 				0F1909E92F60373100BC8EF2 /* FirebaseCore in Frameworks */,
+				0FF7064D2FB35CF500B7C17B /* GoogleGenerativeAI in Frameworks */,
 				0F1909EF2F60373100BC8EF2 /* FirebaseStorage in Frameworks */,
 				0F1909E72F60373100BC8EF2 /* FirebaseAuth in Frameworks */,
 			);
@@ -168,6 +182,7 @@
 				0F190A1D2F72CA8300BC8EF2 /* CustomViews */,
 				0F1909DA2F57578400BC8EF2 /* Scenes */,
 				0F1909C82F57572D00BC8EF2 /* Info.plist */,
+				0FF706592FBE170B00B7C17B /* GenerativeAI-Info.plist */,
 				0F190A022F66A5F000BC8EF2 /* GoogleService-Info.plist */,
 			);
 			path = CuSosyal;
@@ -192,6 +207,7 @@
 				0F1909F22F603CC700BC8EF2 /* Users.swift */,
 				0F1909F42F603D5D00BC8EF2 /* Events.swift */,
 				0F190A082F688B6500BC8EF2 /* Tags.swift */,
+				0FF7064E2FB35D7F00B7C17B /* ChatMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +215,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0FF706502FB35DCF00B7C17B /* AIChat */,
 				0F5670B72F9A21BD005FE755 /* EventDetail */,
 				0F5670AB2F94E169005FE755 /* CommunityDetail */,
 				0F5670952F93A46F005FE755 /* Communities */,
@@ -249,6 +266,7 @@
 			children = (
 				0F1909FC2F615DE000BC8EF2 /* AuthManager.swift */,
 				0F5670A62F93C981005FE755 /* NetworkManager.swift */,
+				0FF706572FB3777800B7C17B /* AIManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -369,6 +387,16 @@
 			path = SuggestedCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		0FF706502FB35DCF00B7C17B /* AIChat */ = {
+			isa = PBXGroup;
+			children = (
+				0FF706512FB35DEF00B7C17B /* AIChatViewController.swift */,
+				0FF706552FB35DFA00B7C17B /* AIChatViewModel.swift */,
+				0FF706522FB35DEF00B7C17B /* AIChatViewController.xib */,
+			);
+			path = AIChat;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -392,6 +420,7 @@
 				0F1909EC2F60373100BC8EF2 /* FirebaseFirestore */,
 				0F1909EE2F60373100BC8EF2 /* FirebaseStorage */,
 				0F5670A92F93D167005FE755 /* SDWebImage */,
+				0FF7064C2FB35CF500B7C17B /* GoogleGenerativeAI */,
 			);
 			productName = CuSosyal;
 			productReference = 0F1909AE2F57571B00BC8EF2 /* CuSosyal.app */;
@@ -424,6 +453,7 @@
 			packageReferences = (
 				0F1909E52F60373100BC8EF2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				0F5670A82F93D167005FE755 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				0FF7064B2FB35CF500B7C17B /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0F1909AF2F57571B00BC8EF2 /* Products */;
@@ -442,6 +472,7 @@
 			files = (
 				0F5670922F914568005FE755 /* ProfileViewController.xib in Resources */,
 				0F5670A52F93C41E005FE755 /* CommunitiesCollectionViewCell.xib in Resources */,
+				0FF706542FB35DEF00B7C17B /* AIChatViewController.xib in Resources */,
 				0F5670B52F94EC18005FE755 /* EventCollectionViewCell.xib in Resources */,
 				0F1909FA2F615A7B00BC8EF2 /* LoginViewController.xib in Resources */,
 				0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */,
@@ -450,6 +481,7 @@
 				0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */,
 				0F190A132F68990C00BC8EF2 /* TagsViewController.xib in Resources */,
 				0F190A032F66A5F000BC8EF2 /* GoogleService-Info.plist in Resources */,
+				0FF7065A2FBE170B00B7C17B /* GenerativeAI-Info.plist in Resources */,
 				0FF706482FAA21B500B7C17B /* SuggestedCollectionViewCell.xib in Resources */,
 				0F1909E42F57623E00BC8EF2 /* HomeViewController.xib in Resources */,
 				0F5670992F93A4A1005FE755 /* CommunitiesViewController.xib in Resources */,
@@ -480,6 +512,7 @@
 				0F1909F12F603C2B00BC8EF2 /* Communities.swift in Sources */,
 				0F190A182F72B0B200BC8EF2 /* TagsViewModel.swift in Sources */,
 				0F190A1A2F72B0C000BC8EF2 /* RegisterViewModel.swift in Sources */,
+				0FF7064F2FB35D7F00B7C17B /* ChatMessage.swift in Sources */,
 				0F5670A72F93C981005FE755 /* NetworkManager.swift in Sources */,
 				0F5670A02F93C2C5005FE755 /* SingleColumnDynamicHeightFlowLayout.swift in Sources */,
 				0F5670982F93A4A0005FE755 /* CommunitiesViewController.swift in Sources */,
@@ -488,6 +521,7 @@
 				0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */,
 				0F5670AE2F94E184005FE755 /* CommunityDetailViewController.swift in Sources */,
 				0F190A0D2F68931600BC8EF2 /* RegisterViewController.swift in Sources */,
+				0FF706532FB35DEF00B7C17B /* AIChatViewController.swift in Sources */,
 				0F1909D52F57572D00BC8EF2 /* SceneDelegate.swift in Sources */,
 				0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */,
 				0F5670A42F93C41E005FE755 /* CommunitiesCollectionViewCell.swift in Sources */,
@@ -496,11 +530,13 @@
 				0F1909F92F615A7B00BC8EF2 /* LoginViewController.swift in Sources */,
 				0F190A492F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift in Sources */,
 				0F190A202F72CAF300BC8EF2 /* TagsCollectionViewCell.swift in Sources */,
+				0FF706582FB3777800B7C17B /* AIManager.swift in Sources */,
 				0F190A052F66BDAD00BC8EF2 /* LoginViewModel.swift in Sources */,
 				0F1909F52F603D5D00BC8EF2 /* Events.swift in Sources */,
 				0F5670B12F94E197005FE755 /* CommunityDetailViewModel.swift in Sources */,
 				0F1909F32F603CC700BC8EF2 /* Users.swift in Sources */,
 				0F5670BB2F9A21DD005FE755 /* EventDetailViewController.swift in Sources */,
+				0FF706562FB35DFA00B7C17B /* AIChatViewModel.swift in Sources */,
 				0F1909E32F57623E00BC8EF2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,6 +776,14 @@
 				minimumVersion = 5.21.7;
 			};
 		};
+		0FF7064B2FB35CF500B7C17B /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -772,6 +816,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0F5670A82F93D167005FE755 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		0FF7064C2FB35CF500B7C17B /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FF7064B2FB35CF500B7C17B /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

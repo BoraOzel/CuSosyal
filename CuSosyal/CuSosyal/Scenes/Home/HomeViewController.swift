@@ -23,6 +23,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var emptyEventLabel: UILabel!
     
+    
+    
+    
     private let viewModel: HomeViewModelInterface
     
     init(viewModel: HomeViewModelInterface) {
@@ -55,8 +58,12 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
+    @IBAction func startChatButtonClicked(_ sender: Any) {
+        tabBarController?.selectedIndex = 2
+    }
+    
     @objc func askAiTapped() {
-        
+        tabBarController?.selectedIndex = 2
     }
     
 }

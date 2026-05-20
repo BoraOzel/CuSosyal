@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-protocol AuthManagerInterface {
+protocol AuthManagerInterface: AnyObject {
     func registerUser(with email: String, password: String, name: String, interestedTags: [Tags]) async throws
     func signIn(with email: String, password: String) async throws
     func signOut() throws

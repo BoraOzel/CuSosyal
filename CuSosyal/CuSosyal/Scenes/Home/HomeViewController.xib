@@ -112,7 +112,35 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWj-U2-KGt">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="156"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mw3-Xr-Juw">
+                                                    <rect key="frame" x="273" y="61" width="80" height="34.333333333333343"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="9Gx-Y0-gcB"/>
+                                                    </constraints>
+                                                    <color key="tintColor" name="primaryColor"/>
+                                                    <buttonConfiguration key="configuration" style="filled" title="Başla">
+                                                        <color key="baseBackgroundColor" name="primaryColor"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="startChatButtonClicked:" destination="-1" eventType="touchUpInside" id="Duv-c2-KwL"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yapay zeka ile sohbet et!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsT-lY-rq5">
+                                                    <rect key="frame" x="30" y="54" width="213" height="48"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" name="accentColor"/>
+                                            <constraints>
+                                                <constraint firstItem="Mw3-Xr-Juw" firstAttribute="leading" secondItem="RsT-lY-rq5" secondAttribute="trailing" constant="30" id="Tub-iC-dda"/>
+                                                <constraint firstItem="Mw3-Xr-Juw" firstAttribute="centerY" secondItem="HWj-U2-KGt" secondAttribute="centerY" id="U1j-le-SFs"/>
+                                                <constraint firstItem="RsT-lY-rq5" firstAttribute="leading" secondItem="HWj-U2-KGt" secondAttribute="leading" constant="30" id="d13-00-cTf"/>
+                                                <constraint firstItem="RsT-lY-rq5" firstAttribute="centerY" secondItem="HWj-U2-KGt" secondAttribute="centerY" id="oin-Qr-hco"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mw3-Xr-Juw" secondAttribute="trailing" constant="30" id="yaN-oj-CHQ"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
