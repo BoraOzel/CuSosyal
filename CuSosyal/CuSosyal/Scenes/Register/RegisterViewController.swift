@@ -94,6 +94,7 @@ extension RegisterViewController: TagSelectionDelegate {
         Task {
             do {
                 try await viewModel.register(name: nameTextField.text!,
+                                             surname: surnameTextField.text!,
                                              email: emailTextField.text!,
                                              password: passwordTextField.text!,
                                              tags: tags)

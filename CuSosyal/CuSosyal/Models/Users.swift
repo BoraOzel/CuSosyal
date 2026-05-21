@@ -16,8 +16,9 @@ enum UserRole: String, Codable {
 struct Users: Codable {
     @DocumentID var id: String?
     let name: String
+    let surname: String
     let email: String
     let interestedTags: [Tags]?
-    
+
     var reservedEvents: [String]?
 }

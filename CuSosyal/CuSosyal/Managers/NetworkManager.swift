@@ -16,6 +16,7 @@ protocol NetworkManagerInterface: AnyObject {
     func joinEvent(userId: String, eventId: String) async throws
     func leaveEvent(userId: String, eventId: String) async throws
     func fetchSavedEvents(eventIds: [String]) async throws -> [Events]
+    func updateUserTags(_ tags: [Tags]) async throws
 }
 
 class NetworkManager: NetworkManagerInterface {
@@ -83,6 +84,14 @@ class NetworkManager: NetworkManagerInterface {
         try await db.collection("users").document(userId).updateData(["reservedEvents" : FieldValue.arrayRemove([eventId])])
     }
     
+    func updateUserTags(_ tags: [Tags]) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            throw NSError(domain: "Auth", code: 401)
+        }
+        let tagRawValues = tags.map { $0.rawValue }
+        try await db.collection("users").document(uid).updateData(["interestedTags": tagRawValues])
+    }
+
     func fetchSavedEvents(eventIds: [String]) async throws -> [Events] {
         guard !eventIds.isEmpty else { return [] }
         

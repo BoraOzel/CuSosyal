@@ -13,6 +13,7 @@ protocol TagSelectionDelegate: AnyObject {
 
 protocol TagsViewControllerInterface {
     func setupCollectionView()
+    func saveTags()
 }
 
 class TagsViewController: UIViewController,
@@ -27,11 +28,21 @@ class TagsViewController: UIViewController,
     
     weak var delegate: TagSelectionDelegate?
     
+    private let viewModel: TagsViewModelInterface
     private let allTags = Tags.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+    }
+    
+    init(viewModel: TagsViewModelInterface = TagsViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: "TagsViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @IBAction func registerButtonClicked(_ sender: Any) {
@@ -43,7 +54,12 @@ class TagsViewController: UIViewController,
             return
         }
         
-        delegate?.didSelectTags(tags: selectedTags)
+        if delegate != nil {
+            delegate?.didSelectTags(tags: selectedTags)
+        } else {
+            saveTags()
+        }
+        
     }
     
 }
@@ -60,6 +76,21 @@ extension TagsViewController: TagsViewControllerInterface {
         tagsCollectionView.collectionViewLayout = ThreeColumnGridFlowLayout()
     }
     
+    func saveTags() {
+        Task { [weak self] in
+            guard let self else { return }
+            do {
+                try await viewModel.saveTags(selectedTags)
+                await MainActor.run {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            } catch {
+                showAlert(title: "Hata",
+                          message: "İlgi alanları kaydedilemedi.",
+                          buttonText: "Tamam")
+            }
+        }
+    }
 }
 
 extension TagsViewController: UICollectionViewDelegate {
