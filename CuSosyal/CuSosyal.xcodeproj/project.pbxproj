@@ -72,6 +72,9 @@
 		0FF706562FB35DFA00B7C17B /* AIChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706552FB35DFA00B7C17B /* AIChatViewModel.swift */; };
 		0FF706582FB3777800B7C17B /* AIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706572FB3777800B7C17B /* AIManager.swift */; };
 		0FF7065A2FBE170B00B7C17B /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706592FBE170B00B7C17B /* GenerativeAI-Info.plist */; };
+		0FF7065E2FBF0EC800B7C17B /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7065C2FBF0EC800B7C17B /* ResetPasswordViewController.swift */; };
+		0FF7065F2FBF0EC800B7C17B /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7065D2FBF0EC800B7C17B /* ResetPasswordViewController.xib */; };
+		0FF706612FBF0EE100B7C17B /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706602FBF0EE100B7C17B /* ResetPasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +138,9 @@
 		0FF706552FB35DFA00B7C17B /* AIChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIChatViewModel.swift; sourceTree = "<group>"; };
 		0FF706572FB3777800B7C17B /* AIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIManager.swift; sourceTree = "<group>"; };
 		0FF706592FBE170B00B7C17B /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
+		0FF7065C2FBF0EC800B7C17B /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		0FF7065D2FBF0EC800B7C17B /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
+		0FF706602FBF0EE100B7C17B /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +221,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0FF7065B2FBF0EB000B7C17B /* ResetPassword */,
 				0FF706502FB35DCF00B7C17B /* AIChat */,
 				0F5670B72F9A21BD005FE755 /* EventDetail */,
 				0F5670AB2F94E169005FE755 /* CommunityDetail */,
@@ -397,6 +404,16 @@
 			path = AIChat;
 			sourceTree = "<group>";
 		};
+		0FF7065B2FBF0EB000B7C17B /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				0FF7065C2FBF0EC800B7C17B /* ResetPasswordViewController.swift */,
+				0FF706602FBF0EE100B7C17B /* ResetPasswordViewModel.swift */,
+				0FF7065D2FBF0EC800B7C17B /* ResetPasswordViewController.xib */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -475,6 +492,7 @@
 				0FF706542FB35DEF00B7C17B /* AIChatViewController.xib in Resources */,
 				0F5670B52F94EC18005FE755 /* EventCollectionViewCell.xib in Resources */,
 				0F1909FA2F615A7B00BC8EF2 /* LoginViewController.xib in Resources */,
+				0FF7065F2FBF0EC800B7C17B /* ResetPasswordViewController.xib in Resources */,
 				0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */,
 				0F1909D02F57572D00BC8EF2 /* Assets.xcassets in Resources */,
 				0F5670BA2F9A21DD005FE755 /* EventDetailViewController.xib in Resources */,
@@ -524,11 +542,13 @@
 				0FF706532FB35DEF00B7C17B /* AIChatViewController.swift in Sources */,
 				0F1909D52F57572D00BC8EF2 /* SceneDelegate.swift in Sources */,
 				0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */,
+				0FF7065E2FBF0EC800B7C17B /* ResetPasswordViewController.swift in Sources */,
 				0F5670A42F93C41E005FE755 /* CommunitiesCollectionViewCell.swift in Sources */,
 				0F1909E02F575F0500BC8EF2 /* MainTabBarController.swift in Sources */,
 				0F5670912F914568005FE755 /* ProfileViewController.swift in Sources */,
 				0F1909F92F615A7B00BC8EF2 /* LoginViewController.swift in Sources */,
 				0F190A492F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift in Sources */,
+				0FF706612FBF0EE100B7C17B /* ResetPasswordViewModel.swift in Sources */,
 				0F190A202F72CAF300BC8EF2 /* TagsCollectionViewCell.swift in Sources */,
 				0FF706582FB3777800B7C17B /* AIManager.swift in Sources */,
 				0F190A052F66BDAD00BC8EF2 /* LoginViewModel.swift in Sources */,

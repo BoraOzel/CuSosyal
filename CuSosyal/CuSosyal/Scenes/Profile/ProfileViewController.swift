@@ -46,6 +46,10 @@ class ProfileViewController: UIViewController,
         navigationController?.pushViewController(tagsVC, animated: true)
     }
     
+    @IBAction func resetPasswordClicked(_ sender: Any) {
+        let resetVC = ResetPasswordViewController()
+        navigationController?.pushViewController(resetVC, animated: true)
+    }
     
     @IBAction func logoutButtonClicked(_ sender: Any) {
         viewModel.logout()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AuthError: Error {
+enum AuthError: LocalizedError {
     case invalidEmail
     case weakPassword
     case wrongPassword
@@ -17,7 +17,7 @@ enum AuthError: Error {
     case unknown
     case blank
     
-    var localizedDescription: String {
+    var errorDescription: String? {
         switch self {
         case .invalidEmail: return "Geçersiz email formatı."
         case .weakPassword: return "Zayıf şifre. Lütfen daha güçlü bir şifre giriniz."
