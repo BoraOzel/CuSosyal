@@ -12,9 +12,11 @@ protocol EventDetailViewControllerInterface {
     func configureUI()
     func fetchRegistrationStatus()
     func updateButtonState()
+    func askAddToCalendar()
+    func addToCalendar()
 }
 
-class EventDetailViewController: UIViewController {
+class EventDetailViewController: UIViewController, AlertPresentable {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
@@ -54,7 +56,12 @@ class EventDetailViewController: UIViewController {
         Task { [weak self] in
             guard let self else { return }
             await viewModel.toggleRegistration()
-            await MainActor.run { self.updateButtonState() }
+            await MainActor.run {
+                self.updateButtonState()
+                if self.viewModel.isRegistered {
+                    self.askAddToCalendar() 
+                }
+            }
         }
     }
     
@@ -86,6 +93,36 @@ extension EventDetailViewController: EventDetailViewControllerInterface {
         config.title = isRegistered ? "KAYDIMI İPTAL ET" : "KAYIT OL"
         config.baseBackgroundColor = isRegistered ? .systemRed : UIColor(named: "primaryColor")
         registerButton.configuration = config
+    }
+    
+    func askAddToCalendar() {
+        showConfirmationAlert(title: "Takvime Ekle",
+                              message:"Bu etkinliği takvime eklemek ister misiniz?") { [weak self] action in
+            if action == .ok {
+                self?.addToCalendar()
+            }
+        }
+    }
+    
+    func addToCalendar() {
+        Task { [weak self] in
+            guard let self else { return}
+            do {
+                try await viewModel.addToCalendar()
+                await MainActor.run {
+                    self.showAlert(title: "Başarılu",
+                              message: "Etkinlik takviminize eklendi.",
+                              buttonText: "Tamam")
+                }
+            }
+            catch {
+                await MainActor.run {
+                    self.showAlert(title: "Hata",
+                                   message: error.localizedDescription,
+                                   buttonText: "Tamam")
+                }
+            }
+        }
     }
     
 }

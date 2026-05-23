@@ -23,6 +23,11 @@ public protocol AlertPresentable {
                    message: String?,
                    buttonText: String?,
                    handler: AlertPresentableHandler?)
+    func showConfirmationAlert(title: String?,
+                               message: String?,
+                               confirmText: String,
+                               cancelText: String,
+                               handler: AlertPresentableHandler?)
 }
 
 extension AlertPresentable where Self: UIViewController {
@@ -43,6 +48,28 @@ extension AlertPresentable where Self: UIViewController {
         
         alert.addAction(retryAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showConfirmationAlert(title: String?,
+                               message: String?,
+                               confirmText: String = "Evet",
+                               cancelText: String = "Hayır",
+                               handler: AlertPresentableHandler?) {
+        
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: confirmText, style: .default) { _ in
+            handler?(.ok)
+        }
+        let cancelAction = UIAlertAction(title: cancelText, style: .cancel) { _ in
+            handler?(.cancel)
+        }
+        
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
     }
     
 }

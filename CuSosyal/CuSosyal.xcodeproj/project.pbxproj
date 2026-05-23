@@ -75,6 +75,8 @@
 		0FF7065E2FBF0EC800B7C17B /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7065C2FBF0EC800B7C17B /* ResetPasswordViewController.swift */; };
 		0FF7065F2FBF0EC800B7C17B /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7065D2FBF0EC800B7C17B /* ResetPasswordViewController.xib */; };
 		0FF706612FBF0EE100B7C17B /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706602FBF0EE100B7C17B /* ResetPasswordViewModel.swift */; };
+		0FF706632FC1B2A900B7C17B /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706622FC1B2A900B7C17B /* CalendarManager.swift */; };
+		0FF706652FC1B2E200B7C17B /* CalendarError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706642FC1B2E200B7C17B /* CalendarError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +143,8 @@
 		0FF7065C2FBF0EC800B7C17B /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		0FF7065D2FBF0EC800B7C17B /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		0FF706602FBF0EE100B7C17B /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		0FF706622FC1B2A900B7C17B /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		0FF706642FC1B2E200B7C17B /* CalendarError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				0F1909FE2F615EDB00BC8EF2 /* AuthError.swift */,
+				0FF706642FC1B2E200B7C17B /* CalendarError.swift */,
 				0F1909F02F603C2B00BC8EF2 /* Communities.swift */,
 				0F1909F22F603CC700BC8EF2 /* Users.swift */,
 				0F1909F42F603D5D00BC8EF2 /* Events.swift */,
@@ -274,6 +279,7 @@
 				0F1909FC2F615DE000BC8EF2 /* AuthManager.swift */,
 				0F5670A62F93C981005FE755 /* NetworkManager.swift */,
 				0FF706572FB3777800B7C17B /* AIManager.swift */,
+				0FF706622FC1B2A900B7C17B /* CalendarManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -516,10 +522,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F56709E2F93C200005FE755 /* DynamicFlowLayoutCustomizable.swift in Sources */,
+				0FF706652FC1B2E200B7C17B /* CalendarError.swift in Sources */,
 				0F190A012F66A32A00BC8EF2 /* Router.swift in Sources */,
 				0FF7064A2FB3420800B7C17B /* UIView+Appearance.swift in Sources */,
 				0F190A122F68990C00BC8EF2 /* TagsViewController.swift in Sources */,
 				0F190A162F69A06200BC8EF2 /* Tags+UI.swift in Sources */,
+				0FF706632FC1B2A900B7C17B /* CalendarManager.swift in Sources */,
 				0F5670BD2F9A21F0005FE755 /* EventDetailViewModel.swift in Sources */,
 				0F190A1C2F72B0D100BC8EF2 /* HomeViewModel.swift in Sources */,
 				0FF706472FAA21B500B7C17B /* SuggestedCollectionViewCell.swift in Sources */,
