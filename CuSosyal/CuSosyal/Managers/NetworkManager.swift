@@ -7,6 +7,7 @@
 
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 protocol NetworkManagerInterface: AnyObject {
     func fetchCommunities() async throws -> [Communities]
@@ -20,7 +21,10 @@ protocol NetworkManagerInterface: AnyObject {
     func createEvent(_ event: Events) async throws
     func updateEvent(eventId: String, title: String, location: String, date: Date, description: String) async throws
     func deleteEvent(eventId: String) async throws
-    func fetchEvent(eventId: String) async throws -> Events 
+    func fetchEvent(eventId: String) async throws -> Events
+    func updateCommunity(communityId: String, name: String, description: String, logoUrl: String?) async throws
+    func updateCommunityLogo(communityId: String, imageData: Data) async throws -> String
+    func fetchCommunity(communityId: String) async throws -> Communities
 }
 
 class NetworkManager: NetworkManagerInterface {
@@ -54,7 +58,7 @@ class NetworkManager: NetworkManagerInterface {
             }
         }
     }
-
+    
     func fetchEvents(for communityId: String) async throws -> [Events] {
         let snapshot = try await db
             .collection("events")
@@ -95,7 +99,7 @@ class NetworkManager: NetworkManagerInterface {
         let tagRawValues = tags.map { $0.rawValue }
         try await db.collection("users").document(uid).updateData(["interestedTags": tagRawValues])
     }
-
+    
     func fetchSavedEvents(eventIds: [String]) async throws -> [Events] {
         guard !eventIds.isEmpty else { return [] }
         
@@ -122,11 +126,11 @@ class NetworkManager: NetworkManagerInterface {
     
     func updateEvent(eventId: String, title: String, location: String, date: Date, description: String) async throws {
         let data: [String: Any] = [
-                "title": title,
-                "location": location,
-                "date": Timestamp(date: date),
-                "description": description
-            ]
+            "title": title,
+            "location": location,
+            "date": Timestamp(date: date),
+            "description": description
+        ]
         try await db.collection("events").document(eventId).updateData(data)
     }
     
@@ -137,6 +141,32 @@ class NetworkManager: NetworkManagerInterface {
     func fetchEvent(eventId: String) async throws -> Events {
         let document = try await db.collection("events").document(eventId).getDocument()
         return try document.data(as: Events.self)
+    }
+    
+    func updateCommunity(communityId: String, name: String, description: String, logoUrl: String?) async throws {
+        var data: [String: Any] = [
+            "name": name,
+            "description": description
+        ]
+        if let logoUrl { data["logoUrl"] = logoUrl }
+        try await db.collection("clubs").document(communityId).updateData(data)
+    }
+    
+    func updateCommunityLogo(communityId: String, imageData: Data) async throws -> String {
+        let storageRef = Storage.storage().reference()
+            .child("community_logos/\(communityId).jpg")
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        _ = try await storageRef.putDataAsync(imageData, metadata: metadata)
+        let url = try await storageRef.downloadURL()
+        return url.absoluteString
+    }
+    
+    func fetchCommunity(communityId: String) async throws -> Communities {
+        let document = try await db.collection("clubs").document(communityId).getDocument()
+        return try document.data(as: Communities.self)
     }
     
 }

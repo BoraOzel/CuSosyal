@@ -16,6 +16,7 @@ protocol CommunityDetailViewModelInterface {
     func getEvents() async
     func numberOfEvents() -> Int
     func getEvent(at index: Int) -> Events?
+    func refreshCommunity() async
 }
 
 final class CommunityDetailViewModel {
@@ -63,4 +64,15 @@ extension CommunityDetailViewModel: CommunityDetailViewModelInterface {
         guard events.indices.contains(index) else { return nil }
         return events[index]
     }
+    
+    func refreshCommunity() async {
+        guard let communityId = community.id else { return }
+        do {
+            let updated = try await networkManager.fetchCommunity(communityId: communityId)
+            await MainActor.run { self.community = updated }
+        } catch {
+            print("refreshCommunity failed: \(error.localizedDescription)")
+        }
+    }
+    
 }

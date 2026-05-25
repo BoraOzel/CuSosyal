@@ -44,15 +44,27 @@ class CommunityDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
-         fetchEvents()
-     }
+        super.viewWillAppear(animated)
+        Task { [weak self] in
+            guard let self else { return }
+            await viewModel.refreshCommunity()
+            await MainActor.run { self.configureUI() }
+        }
+        fetchEvents()
+    }
     
     @objc func addEventTapped() {
         guard let communityId = viewModel.community.id else { return }
         let editVM = EditEventViewModel(mode: .create(communityId: communityId))
         let editVC = EditEventViewController(viewModel: editVM)
         navigationController?.pushViewController(editVC, animated: true)
+    }
+    
+    @objc func editButtonTapped() {
+        let editVM = EditCommunityViewModel(community: viewModel.community)
+        let editVC = EditCommunityViewController(viewModel: editVM)
+        navigationController?.pushViewController(editVC, animated: true)
+        
     }
     
 }
@@ -98,8 +110,6 @@ extension CommunityDetailViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 200, height: 200)     }
 }
 
-
-
 extension CommunityDetailViewController: CommunityDetailViewControllerInterface {
     
     func configureUI() {
@@ -140,7 +150,12 @@ extension CommunityDetailViewController: CommunityDetailViewControllerInterface 
                                         style: .plain,
                                         target: self,
                                         action: #selector(addEventTapped))
-        navigationItem.rightBarButtonItem = addButton
+        
+        let editButton = UIBarButtonItem(image: UIImage(systemName: "pencil"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(editButtonTapped))
+        navigationItem.rightBarButtonItems = [editButton, addButton]
     }
     
 }

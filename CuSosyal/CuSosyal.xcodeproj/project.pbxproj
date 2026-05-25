@@ -80,6 +80,9 @@
 		0FF706692FC44C1700B7C17B /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706672FC44C1700B7C17B /* EditEventViewController.swift */; };
 		0FF7066A2FC44C1700B7C17B /* EditEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706682FC44C1700B7C17B /* EditEventViewController.xib */; };
 		0FF7066C2FC44C2600B7C17B /* EditEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7066B2FC44C2600B7C17B /* EditEventViewModel.swift */; };
+		0FF706702FC4D9E100B7C17B /* EditCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7066E2FC4D9E100B7C17B /* EditCommunityViewController.swift */; };
+		0FF706712FC4D9E100B7C17B /* EditCommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7066F2FC4D9E100B7C17B /* EditCommunityViewController.xib */; };
+		0FF706732FC4D9F000B7C17B /* EditCommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706722FC4D9F000B7C17B /* EditCommunityViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +154,9 @@
 		0FF706672FC44C1700B7C17B /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		0FF706682FC44C1700B7C17B /* EditEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditEventViewController.xib; sourceTree = "<group>"; };
 		0FF7066B2FC44C2600B7C17B /* EditEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewModel.swift; sourceTree = "<group>"; };
+		0FF7066E2FC4D9E100B7C17B /* EditCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommunityViewController.swift; sourceTree = "<group>"; };
+		0FF7066F2FC4D9E100B7C17B /* EditCommunityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditCommunityViewController.xib; sourceTree = "<group>"; };
+		0FF706722FC4D9F000B7C17B /* EditCommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommunityViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0FF7066D2FC4D9CC00B7C17B /* EditCommunity */,
 				0FF706662FC44BFF00B7C17B /* EditEvent */,
 				0FF7065B2FBF0EB000B7C17B /* ResetPassword */,
 				0FF706502FB35DCF00B7C17B /* AIChat */,
@@ -437,6 +444,16 @@
 			path = EditEvent;
 			sourceTree = "<group>";
 		};
+		0FF7066D2FC4D9CC00B7C17B /* EditCommunity */ = {
+			isa = PBXGroup;
+			children = (
+				0FF7066E2FC4D9E100B7C17B /* EditCommunityViewController.swift */,
+				0FF706722FC4D9F000B7C17B /* EditCommunityViewModel.swift */,
+				0FF7066F2FC4D9E100B7C17B /* EditCommunityViewController.xib */,
+			);
+			path = EditCommunity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -528,6 +545,7 @@
 				0F1909E42F57623E00BC8EF2 /* HomeViewController.xib in Resources */,
 				0F5670992F93A4A1005FE755 /* CommunitiesViewController.xib in Resources */,
 				0F190A0E2F68931600BC8EF2 /* RegisterViewController.xib in Resources */,
+				0FF706712FC4D9E100B7C17B /* EditCommunityViewController.xib in Resources */,
 				0F5670AF2F94E184005FE755 /* CommunityDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +559,7 @@
 			files = (
 				0F56709E2F93C200005FE755 /* DynamicFlowLayoutCustomizable.swift in Sources */,
 				0FF706652FC1B2E200B7C17B /* CalendarError.swift in Sources */,
+				0FF706702FC4D9E100B7C17B /* EditCommunityViewController.swift in Sources */,
 				0F190A012F66A32A00BC8EF2 /* Router.swift in Sources */,
 				0FF7064A2FB3420800B7C17B /* UIView+Appearance.swift in Sources */,
 				0F190A122F68990C00BC8EF2 /* TagsViewController.swift in Sources */,
@@ -557,6 +576,7 @@
 				0F190A182F72B0B200BC8EF2 /* TagsViewModel.swift in Sources */,
 				0FF7066C2FC44C2600B7C17B /* EditEventViewModel.swift in Sources */,
 				0F190A1A2F72B0C000BC8EF2 /* RegisterViewModel.swift in Sources */,
+				0FF706732FC4D9F000B7C17B /* EditCommunityViewModel.swift in Sources */,
 				0FF7064F2FB35D7F00B7C17B /* ChatMessage.swift in Sources */,
 				0F5670A72F93C981005FE755 /* NetworkManager.swift in Sources */,
 				0F5670A02F93C2C5005FE755 /* SingleColumnDynamicHeightFlowLayout.swift in Sources */,
