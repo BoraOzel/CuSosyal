@@ -17,6 +17,10 @@ protocol NetworkManagerInterface: AnyObject {
     func leaveEvent(userId: String, eventId: String) async throws
     func fetchSavedEvents(eventIds: [String]) async throws -> [Events]
     func updateUserTags(_ tags: [Tags]) async throws
+    func createEvent(_ event: Events) async throws
+    func updateEvent(eventId: String, title: String, location: String, date: Date, description: String) async throws
+    func deleteEvent(eventId: String) async throws
+    func fetchEvent(eventId: String) async throws -> Events 
 }
 
 class NetworkManager: NetworkManagerInterface {
@@ -103,6 +107,36 @@ class NetworkManager: NetworkManagerInterface {
             }
         }
         return events
+    }
+    
+    func createEvent(_ event: Events) async throws {
+        let data: [String: Any] = [
+            "title": event.title,
+            "location": event.location,
+            "date": Timestamp(date: event.date),
+            "description": event.description,
+            "clubId": event.clubId ?? ""
+        ]
+        try await db.collection("events").addDocument(data: data)
+    }
+    
+    func updateEvent(eventId: String, title: String, location: String, date: Date, description: String) async throws {
+        let data: [String: Any] = [
+                "title": title,
+                "location": location,
+                "date": Timestamp(date: date),
+                "description": description
+            ]
+        try await db.collection("events").document(eventId).updateData(data)
+    }
+    
+    func deleteEvent(eventId: String) async throws {
+        try await db.collection("events").document(eventId).delete()
+    }
+    
+    func fetchEvent(eventId: String) async throws -> Events {
+        let document = try await db.collection("events").document(eventId).getDocument()
+        return try document.data(as: Events.self)
     }
     
 }

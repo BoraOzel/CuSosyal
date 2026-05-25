@@ -13,6 +13,7 @@ protocol CommunityDetailViewControllerInterface {
     func setupCollectionView()
     func fetchEvents()
     func updateEventsUI()
+    func setupAdminNavigationBar()
 }
 
 class CommunityDetailViewController: UIViewController {
@@ -39,7 +40,19 @@ class CommunityDetailViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         configureUI()
-        fetchEvents()
+        setupAdminNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+         fetchEvents()
+     }
+    
+    @objc func addEventTapped() {
+        guard let communityId = viewModel.community.id else { return }
+        let editVM = EditEventViewModel(mode: .create(communityId: communityId))
+        let editVC = EditEventViewController(viewModel: editVM)
+        navigationController?.pushViewController(editVC, animated: true)
     }
     
 }
@@ -51,7 +64,8 @@ extension CommunityDetailViewController: UICollectionViewDelegate {
         
         let detailViewModel = EventDetailViewModel(
             event: event,
-            logoUrl: viewModel.community.logoUrl
+            logoUrl: viewModel.community.logoUrl,
+            adminUid: viewModel.community.adminUid
         )
         let detailVC = EventDetailViewController(viewModel: detailViewModel)
         navigationController?.pushViewController(detailVC, animated: true)
@@ -119,4 +133,15 @@ extension CommunityDetailViewController: CommunityDetailViewControllerInterface 
         }
     }
     
+    func setupAdminNavigationBar() {
+        guard viewModel.isCurrentUserAdmin else { return }
+        
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(addEventTapped))
+        navigationItem.rightBarButtonItem = addButton
+    }
+    
 }
+

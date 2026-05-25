@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 protocol CommunityDetailViewModelInterface {
     var community: Communities { get }
     var communityDescription: String { get }
+    var isCurrentUserAdmin: Bool { get }
     
     func getEvents() async
     func numberOfEvents() -> Int
@@ -18,16 +20,9 @@ protocol CommunityDetailViewModelInterface {
 
 final class CommunityDetailViewModel {
     
-    let community: Communities
+    private(set) var community: Communities
     private let networkManager: any NetworkManagerInterface
     private var events: [Events] = []
-    
-    var communityDescription: String {
-        guard let description = community.description, !description.isEmpty else {
-            return "Bu kulüp için açıklama metni girilmemiş."
-        }
-        return description
-    }
     
     init(community: Communities,
          networkManager: any NetworkManagerInterface = NetworkManager.shared) {
@@ -37,6 +32,19 @@ final class CommunityDetailViewModel {
 }
 
 extension CommunityDetailViewModel: CommunityDetailViewModelInterface {
+    
+    var communityDescription: String {
+        guard let description = community.description, !description.isEmpty else {
+            return "Bu kulüp için açıklama metni girilmemiş."
+        }
+        return description
+    }
+    
+    var isCurrentUserAdmin: Bool {
+        guard let adminUid = community.adminUid,
+              let currentUser = Auth.auth().currentUser?.uid else { return false }
+        return adminUid == currentUser
+    }
     
     func getEvents() async {
         do {

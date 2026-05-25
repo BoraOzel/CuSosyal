@@ -116,7 +116,7 @@ extension HomeViewController: UICollectionViewDelegate {
         else {
             guard let event = viewModel.getSavedEvent(at: indexPath.item) else { return }
             let community = viewModel.getCommunity(for: event)
-            let detailViewModel = EventDetailViewModel(event: event, logoUrl: community?.logoUrl)
+            let detailViewModel = EventDetailViewModel(event: event, logoUrl: community?.logoUrl, adminUid: community?.adminUid)
             let detailVC = EventDetailViewController(viewModel: detailViewModel)
             
             navigationController?.pushViewController(detailVC, animated: true)

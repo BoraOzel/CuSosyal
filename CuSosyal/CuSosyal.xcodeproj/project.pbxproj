@@ -77,6 +77,9 @@
 		0FF706612FBF0EE100B7C17B /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706602FBF0EE100B7C17B /* ResetPasswordViewModel.swift */; };
 		0FF706632FC1B2A900B7C17B /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706622FC1B2A900B7C17B /* CalendarManager.swift */; };
 		0FF706652FC1B2E200B7C17B /* CalendarError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706642FC1B2E200B7C17B /* CalendarError.swift */; };
+		0FF706692FC44C1700B7C17B /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706672FC44C1700B7C17B /* EditEventViewController.swift */; };
+		0FF7066A2FC44C1700B7C17B /* EditEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706682FC44C1700B7C17B /* EditEventViewController.xib */; };
+		0FF7066C2FC44C2600B7C17B /* EditEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7066B2FC44C2600B7C17B /* EditEventViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +148,9 @@
 		0FF706602FBF0EE100B7C17B /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		0FF706622FC1B2A900B7C17B /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		0FF706642FC1B2E200B7C17B /* CalendarError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarError.swift; sourceTree = "<group>"; };
+		0FF706672FC44C1700B7C17B /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
+		0FF706682FC44C1700B7C17B /* EditEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditEventViewController.xib; sourceTree = "<group>"; };
+		0FF7066B2FC44C2600B7C17B /* EditEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +232,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0FF706662FC44BFF00B7C17B /* EditEvent */,
 				0FF7065B2FBF0EB000B7C17B /* ResetPassword */,
 				0FF706502FB35DCF00B7C17B /* AIChat */,
 				0F5670B72F9A21BD005FE755 /* EventDetail */,
@@ -420,6 +427,16 @@
 			path = ResetPassword;
 			sourceTree = "<group>";
 		};
+		0FF706662FC44BFF00B7C17B /* EditEvent */ = {
+			isa = PBXGroup;
+			children = (
+				0FF706672FC44C1700B7C17B /* EditEventViewController.swift */,
+				0FF7066B2FC44C2600B7C17B /* EditEventViewModel.swift */,
+				0FF706682FC44C1700B7C17B /* EditEventViewController.xib */,
+			);
+			path = EditEvent;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -506,6 +523,7 @@
 				0F190A132F68990C00BC8EF2 /* TagsViewController.xib in Resources */,
 				0F190A032F66A5F000BC8EF2 /* GoogleService-Info.plist in Resources */,
 				0FF7065A2FBE170B00B7C17B /* GenerativeAI-Info.plist in Resources */,
+				0FF7066A2FC44C1700B7C17B /* EditEventViewController.xib in Resources */,
 				0FF706482FAA21B500B7C17B /* SuggestedCollectionViewCell.xib in Resources */,
 				0F1909E42F57623E00BC8EF2 /* HomeViewController.xib in Resources */,
 				0F5670992F93A4A1005FE755 /* CommunitiesViewController.xib in Resources */,
@@ -537,6 +555,7 @@
 				0F1909FD2F615DE000BC8EF2 /* AuthManager.swift in Sources */,
 				0F1909F12F603C2B00BC8EF2 /* Communities.swift in Sources */,
 				0F190A182F72B0B200BC8EF2 /* TagsViewModel.swift in Sources */,
+				0FF7066C2FC44C2600B7C17B /* EditEventViewModel.swift in Sources */,
 				0F190A1A2F72B0C000BC8EF2 /* RegisterViewModel.swift in Sources */,
 				0FF7064F2FB35D7F00B7C17B /* ChatMessage.swift in Sources */,
 				0F5670A72F93C981005FE755 /* NetworkManager.swift in Sources */,
@@ -552,6 +571,7 @@
 				0F1909FF2F615EDB00BC8EF2 /* AuthError.swift in Sources */,
 				0FF7065E2FBF0EC800B7C17B /* ResetPasswordViewController.swift in Sources */,
 				0F5670A42F93C41E005FE755 /* CommunitiesCollectionViewCell.swift in Sources */,
+				0FF706692FC44C1700B7C17B /* EditEventViewController.swift in Sources */,
 				0F1909E02F575F0500BC8EF2 /* MainTabBarController.swift in Sources */,
 				0F5670912F914568005FE755 /* ProfileViewController.swift in Sources */,
 				0F1909F92F615A7B00BC8EF2 /* LoginViewController.swift in Sources */,

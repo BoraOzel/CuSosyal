@@ -14,6 +14,7 @@ protocol EventDetailViewControllerInterface {
     func updateButtonState()
     func askAddToCalendar()
     func addToCalendar()
+    func setupAdminNavigationBar()
 }
 
 class EventDetailViewController: UIViewController, AlertPresentable {
@@ -47,8 +48,17 @@ class EventDetailViewController: UIViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
         fetchRegistrationStatus()
+        setupAdminNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task { [weak self] in
+            guard let self else { return }
+            await viewModel.refreshEvent()
+            await MainActor.run { self.configureUI() }
+        }
     }
     
     
@@ -59,7 +69,37 @@ class EventDetailViewController: UIViewController, AlertPresentable {
             await MainActor.run {
                 self.updateButtonState()
                 if self.viewModel.isRegistered {
-                    self.askAddToCalendar() 
+                    self.askAddToCalendar()
+                }
+            }
+        }
+    }
+    
+    
+    @objc private func editButtonTapped() {
+        let editVM = EditEventViewModel(mode: .edit(event: viewModel.event))
+        let editVC = EditEventViewController(viewModel: editVM)
+        navigationController?.pushViewController(editVC, animated: true)
+    }
+    
+    @objc private func deleteButtonTapped() {
+        showConfirmationAlert(
+            title: "Etkinliği Sil",
+            message: "Bu etkinliği silmek istediğinize emin misiniz?"
+        ) { [weak self] action in
+            guard let self, action == .ok  else { return }
+            Task {
+                do {
+                    try await self.viewModel.deleteEvent()
+                    await MainActor.run {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                } catch {
+                    await MainActor.run {
+                        self.showAlert(title: "Hata",
+                                       message: error.localizedDescription,
+                                       buttonText: "Tamam")
+                    }
                 }
             }
         }
@@ -110,9 +150,9 @@ extension EventDetailViewController: EventDetailViewControllerInterface {
             do {
                 try await viewModel.addToCalendar()
                 await MainActor.run {
-                    self.showAlert(title: "Başarılu",
-                              message: "Etkinlik takviminize eklendi.",
-                              buttonText: "Tamam")
+                    self.showAlert(title: "Başarılı",
+                                   message: "Etkinlik takviminize eklendi.",
+                                   buttonText: "Tamam")
                 }
             }
             catch {
@@ -125,6 +165,23 @@ extension EventDetailViewController: EventDetailViewControllerInterface {
         }
     }
     
+    func setupAdminNavigationBar() {
+        guard viewModel.isCurrentUserAdmin else { return }
+        
+        let editButton = UIBarButtonItem(image: UIImage(systemName: "pencil"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(editButtonTapped))
+        
+        let deleteButton = UIBarButtonItem(image: UIImage(systemName: "trash"),
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(deleteButtonTapped))
+        deleteButton.tintColor = .red
+        navigationItem.rightBarButtonItems = [editButton, deleteButton]
+    }
+    
 }
+
 
 
