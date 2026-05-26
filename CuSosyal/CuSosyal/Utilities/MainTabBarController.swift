@@ -12,7 +12,7 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewControllers = [createHomeNC(), createCommunityNC(), createAiChatNC()]
+        viewControllers = [createHomeNC(), createCommunityNC(), createEventsNC(), createAiChatNC()]
         configureTabBarAppearance()
     }
     
@@ -28,9 +28,15 @@ final class MainTabBarController: UITabBarController {
         return UINavigationController(rootViewController: communityVC)
     }
     
+    func createEventsNC() -> UINavigationController {
+        let eventsVC = EventsViewController(viewModel: EventsViewModel())
+        eventsVC.tabBarItem = UITabBarItem(title: "Etkinlikler", image: UIImage(systemName: "calendar"), tag: 2)
+        return UINavigationController(rootViewController: eventsVC)
+    }
+    
     func createAiChatNC() -> UINavigationController {
         let aiChatVC = AIChatViewController(viewModel: AIChatViewModel())
-        aiChatVC.tabBarItem = UITabBarItem(title: "AI Asistan", image: UIImage(systemName: "sparkles"), tag: 2)
+        aiChatVC.tabBarItem = UITabBarItem(title: "AI Asistan", image: UIImage(systemName: "sparkles"), tag: 3)
         return UINavigationController(rootViewController: aiChatVC)
     }
     

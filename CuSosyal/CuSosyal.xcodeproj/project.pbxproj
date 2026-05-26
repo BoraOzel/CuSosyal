@@ -83,6 +83,9 @@
 		0FF706702FC4D9E100B7C17B /* EditCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7066E2FC4D9E100B7C17B /* EditCommunityViewController.swift */; };
 		0FF706712FC4D9E100B7C17B /* EditCommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7066F2FC4D9E100B7C17B /* EditCommunityViewController.xib */; };
 		0FF706732FC4D9F000B7C17B /* EditCommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706722FC4D9F000B7C17B /* EditCommunityViewModel.swift */; };
+		0FF706772FC58F0E00B7C17B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706752FC58F0E00B7C17B /* EventsViewController.swift */; };
+		0FF706782FC58F0E00B7C17B /* EventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706762FC58F0E00B7C17B /* EventsViewController.xib */; };
+		0FF7067A2FC58F1900B7C17B /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706792FC58F1900B7C17B /* EventsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +160,9 @@
 		0FF7066E2FC4D9E100B7C17B /* EditCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommunityViewController.swift; sourceTree = "<group>"; };
 		0FF7066F2FC4D9E100B7C17B /* EditCommunityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditCommunityViewController.xib; sourceTree = "<group>"; };
 		0FF706722FC4D9F000B7C17B /* EditCommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommunityViewModel.swift; sourceTree = "<group>"; };
+		0FF706752FC58F0E00B7C17B /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		0FF706762FC58F0E00B7C17B /* EventsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsViewController.xib; sourceTree = "<group>"; };
+		0FF706792FC58F1900B7C17B /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +244,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0FF706742FC58EFC00B7C17B /* Events */,
 				0FF7066D2FC4D9CC00B7C17B /* EditCommunity */,
 				0FF706662FC44BFF00B7C17B /* EditEvent */,
 				0FF7065B2FBF0EB000B7C17B /* ResetPassword */,
@@ -454,6 +461,16 @@
 			path = EditCommunity;
 			sourceTree = "<group>";
 		};
+		0FF706742FC58EFC00B7C17B /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				0FF706752FC58F0E00B7C17B /* EventsViewController.swift */,
+				0FF706792FC58F1900B7C17B /* EventsViewModel.swift */,
+				0FF706762FC58F0E00B7C17B /* EventsViewController.xib */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -528,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F5670922F914568005FE755 /* ProfileViewController.xib in Resources */,
+				0FF706782FC58F0E00B7C17B /* EventsViewController.xib in Resources */,
 				0F5670A52F93C41E005FE755 /* CommunitiesCollectionViewCell.xib in Resources */,
 				0FF706542FB35DEF00B7C17B /* AIChatViewController.xib in Resources */,
 				0F5670B52F94EC18005FE755 /* EventCollectionViewCell.xib in Resources */,
@@ -566,6 +584,7 @@
 				0F190A162F69A06200BC8EF2 /* Tags+UI.swift in Sources */,
 				0FF706632FC1B2A900B7C17B /* CalendarManager.swift in Sources */,
 				0F5670BD2F9A21F0005FE755 /* EventDetailViewModel.swift in Sources */,
+				0FF706772FC58F0E00B7C17B /* EventsViewController.swift in Sources */,
 				0F190A1C2F72B0D100BC8EF2 /* HomeViewModel.swift in Sources */,
 				0FF706472FAA21B500B7C17B /* SuggestedCollectionViewCell.swift in Sources */,
 				0F1909D42F57572D00BC8EF2 /* AppDelegate.swift in Sources */,
@@ -583,6 +602,7 @@
 				0F5670982F93A4A0005FE755 /* CommunitiesViewController.swift in Sources */,
 				0F56709B2F93A4B8005FE755 /* CommunitiesViewModel.swift in Sources */,
 				0F5670B62F94EC18005FE755 /* EventCollectionViewCell.swift in Sources */,
+				0FF7067A2FC58F1900B7C17B /* EventsViewModel.swift in Sources */,
 				0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */,
 				0F5670AE2F94E184005FE755 /* CommunityDetailViewController.swift in Sources */,
 				0F190A0D2F68931600BC8EF2 /* RegisterViewController.swift in Sources */,
