@@ -70,8 +70,12 @@ extension EventsViewModel: EventsViewModelInterface {
         }
         else {
             isSearching = true
-            filteredEvents = events.filter {
-                $0.title.localizedCaseInsensitiveContains(query)
+            filteredEvents = events.filter { event in
+                let titleMatch = event.title.localizedCaseInsensitiveContains(query)
+                            let communityName = getCommunity(for: event)?.name ?? ""
+                            let communityMatch = communityName.localizedCaseInsensitiveContains(query)
+                            
+                            return titleMatch || communityMatch
             }
         }
     }

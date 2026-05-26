@@ -23,14 +23,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rIO-z6-Abt">
-                    <rect key="frame" x="5" y="118" width="383" height="666"/>
+                    <rect key="frame" x="5" y="118" width="383" height="661"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QzD-og-2ZL">
-                            <rect key="frame" x="0.0" y="0.0" width="383" height="627"/>
+                            <rect key="frame" x="0.0" y="0.0" width="383" height="622"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Wj6-YK-tqD">
-                            <rect key="frame" x="0.0" y="632" width="383" height="34"/>
+                            <rect key="frame" x="0.0" y="627" width="383" height="34"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTw-ph-e1C">
                                     <rect key="frame" x="0.0" y="0.0" width="327.33333333333331" height="34"/>
@@ -61,7 +61,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rIO-z6-Abt" secondAttribute="trailing" constant="5" id="1rt-0g-n1o"/>
                 <constraint firstItem="rIO-z6-Abt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="Os2-gM-Gh1"/>
                 <constraint firstItem="rIO-z6-Abt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gXS-ta-bNZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rIO-z6-Abt" secondAttribute="bottom" id="pKv-Sa-2Qc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rIO-z6-Abt" secondAttribute="bottom" constant="5" id="pKv-Sa-2Qc"/>
             </constraints>
             <point key="canvasLocation" x="138" y="154"/>
         </view>
