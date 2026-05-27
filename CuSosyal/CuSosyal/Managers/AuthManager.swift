@@ -128,6 +128,9 @@ extension AuthManager: AuthManagerInterface {
             try await user.reauthenticate(with: credential)
             try await user.sendEmailVerification(beforeUpdatingEmail: newEmail)
         } catch {
+            //throw mapFirebaseError(error)
+            let e = error as NSError
+            print("🔴 domain: \(e.domain) | code: \(e.code) | desc: \(e.localizedDescription)")
             throw mapFirebaseError(error)
         }
 
@@ -151,6 +154,8 @@ extension AuthManager: AuthManagerInterface {
                 return .emailAlreadyInUse
             case .requiresRecentLogin:
                 return .requiresRecentLogin
+            case .networkError:
+                return .networkError
             default:
                 return .unknown
             }

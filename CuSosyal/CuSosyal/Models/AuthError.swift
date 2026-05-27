@@ -17,6 +17,7 @@ enum AuthError: LocalizedError {
     case unknown
     case blank
     case requiresRecentLogin
+    case networkError
     
     var errorDescription: String? {
         switch self {
@@ -29,6 +30,7 @@ enum AuthError: LocalizedError {
         case .unknown: return "Bilinmeyen bir hata meydana geldi."
         case .blank: return "Lütfen tüm boşlukları doldurunuz."
         case .requiresRecentLogin:   return "Bu işlem için tekrar giriş yapmanız gerekiyor."
+        case .networkError:        return "Bağlantı hatası. Lütfen internet bağlantınızı kontrol edin."  
         }
     }
 }

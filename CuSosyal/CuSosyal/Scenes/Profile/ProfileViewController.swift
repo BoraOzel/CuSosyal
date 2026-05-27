@@ -14,7 +14,7 @@ protocol ProfileViewControllerInterface {
     func setupNavigationBar()
     func presentPasswordAlert()
     func performDeleteAccount(password: String)
-    func performUpdate(name: String, surname: String, email: String, currentPassword: String?)
+    func performUpdate(name: String, surname: String, email: String, currentPassword: String?, emailChanged: Bool)
 }
 
 class ProfileViewController: UIViewController,
@@ -100,31 +100,10 @@ class ProfileViewController: UIViewController,
                 cancelText: "İptal"
             ) { [weak self] password in
                 guard let self, let password, !password.isEmpty else { return }
-                self.performUpdate(name: name, surname: surname, email: email, currentPassword: password)
+                self.performUpdate(name: name, surname: surname, email: email, currentPassword: password, emailChanged: true)
             }
         } else {
-            performUpdate(name: name, surname: surname, email: email, currentPassword: nil)
-        }
-    }
-    
-    func performUpdate(name: String, surname: String, email: String, currentPassword: String?) {
-        Task { [weak self] in
-            guard let self else { return }
-            do {
-                try await viewModel.updateProfile(name: name, surname: surname, email: email, currentPassword: currentPassword)
-                await MainActor.run {
-                    self.setEditMode(false)
-                    self.showAlert(
-                        title: "Doğrulama Gönderildi",
-                        message: "Yeni email adresinize bir doğrulama linki gönderildi. Linke tıkladıktan sonra email adresiniz güncellenecektir.",
-                        buttonText: "Tamam"
-                    )
-                }
-            } catch {
-                await MainActor.run {
-                    self.showAlert(title: "Hata", message: error.localizedDescription, buttonText: "Tamam")
-                }
-            }
+            performUpdate(name: name, surname: surname, email: email, currentPassword: nil, emailChanged: false)
         }
     }
     
@@ -202,6 +181,36 @@ extension ProfileViewController: ProfileViewControllerInterface {
                     self.showAlert(title: "Hata",
                                    message: error.localizedDescription,
                                    buttonText: "Tamam")
+                }
+            }
+        }
+    }
+    
+    func performUpdate(name: String, surname: String, email: String, currentPassword: String?, emailChanged: Bool) {
+        Task { [weak self] in
+            guard let self else { return }
+            do {
+                try await viewModel.updateProfile(name: name, surname: surname, email: email, currentPassword: currentPassword)
+                await MainActor.run {
+                    self.setEditMode(false)
+                    if emailChanged {
+                        self.showAlert(
+                            title: "Doğrulama Gönderildi",
+                            message: "Yeni email adresinize bir doğrulama linki gönderildi. Linke tıkladıktan sonra email adresiniz güncellenecektir.",
+                            buttonText: "Tamam"
+                        )
+                    }
+                    else {
+                        self.showAlert(
+                            title: "Başarılı",
+                            message: "Bilgileriniz güncellendi.",
+                            buttonText: "Tamam"
+                        )
+                    }
+                }
+            } catch {
+                await MainActor.run {
+                    self.showAlert(title: "Hata", message: error.localizedDescription, buttonText: "Tamam")
                 }
             }
         }

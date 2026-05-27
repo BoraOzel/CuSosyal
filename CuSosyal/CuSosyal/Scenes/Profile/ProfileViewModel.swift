@@ -63,11 +63,12 @@ extension ProfileViewModel: ProfileViewModelInterface {
     }
     
     func updateProfile(name: String, surname: String, email: String, currentPassword: String? = nil) async throws {
-        try await networkManager.updateUserProfile(name: name, surname: surname, email: email)
-
-            if email != userEmail, let password = currentPassword {
+        if email != userEmail, let password = currentPassword {
                 try await authManager.updateEmail(to: email, currentPassword: password)
             }
+        
+            try await networkManager.updateUserProfile(name: name, surname: surname, email: email)
+        
         await MainActor.run {
             self.userName = name
             self.userSurname = surname
