@@ -25,6 +25,8 @@ protocol NetworkManagerInterface: AnyObject {
     func updateCommunity(communityId: String, name: String, description: String, logoUrl: String?) async throws
     func updateCommunityLogo(communityId: String, imageData: Data) async throws -> String
     func fetchCommunity(communityId: String) async throws -> Communities
+    func updateUserProfile(name: String, surname: String, email: String) async throws
+    func deleteUserData() async throws
 }
 
 class NetworkManager: NetworkManagerInterface {
@@ -167,6 +169,24 @@ class NetworkManager: NetworkManagerInterface {
     func fetchCommunity(communityId: String) async throws -> Communities {
         let document = try await db.collection("clubs").document(communityId).getDocument()
         return try document.data(as: Communities.self)
+    }
+    
+    func updateUserProfile(name: String, surname: String, email: String) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            throw NSError(domain: "Auth", code: 401)
+        }
+        try await db.collection("users").document(uid).updateData([
+            "name": name,
+            "surname": surname,
+            "email": email
+        ])
+    }
+    
+    func deleteUserData() async throws {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            throw NSError(domain: "Auth", code: 401)
+        }
+        try await db.collection("users").document(uid).delete()
     }
     
 }

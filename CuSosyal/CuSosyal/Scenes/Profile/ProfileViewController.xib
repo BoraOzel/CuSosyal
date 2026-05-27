@@ -26,7 +26,7 @@
                     <rect key="frame" x="5" y="118" width="383" height="566"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SOY-4h-O0h">
-                            <rect key="frame" x="0.0" y="0.0" width="383" height="275.66666666666669"/>
+                            <rect key="frame" x="0.0" y="0.0" width="383" height="320"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v38-er-cZk">
                                     <rect key="frame" x="0.0" y="0.0" width="383" height="55.666666666666664"/>
@@ -105,6 +105,17 @@
                                     </buttonConfiguration>
                                     <connections>
                                         <action selector="resetPasswordClicked:" destination="-1" eventType="touchUpInside" id="HYf-VX-8Dc"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEb-XA-SLj">
+                                    <rect key="frame" x="0.0" y="285.66666666666669" width="383" height="34.333333333333314"/>
+                                    <color key="tintColor" name="primaryColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="tinted" title="Hesabi Sil" cornerStyle="capsule">
+                                        <color key="baseBackgroundColor" name="primaryColor"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="deleteAccountButtonClicked:" destination="-1" eventType="touchUpInside" id="Lve-xs-0kP"/>
                                     </connections>
                                 </button>
                             </subviews>

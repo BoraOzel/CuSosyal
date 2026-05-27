@@ -14,6 +14,8 @@ protocol AuthManagerInterface: AnyObject {
     func signIn(with email: String, password: String) async throws
     func signOut() throws
     func resetPassword(currentPassword: String, newPassword: String) async throws
+    func deleteAccount(currentPassword: String) async throws
+    func updateEmail(to newEmail: String, currentPassword: String) async throws
     func mapFirebaseError(_ error: Error) -> AuthError
 }
 
@@ -98,6 +100,39 @@ extension AuthManager: AuthManagerInterface {
         }
     }
     
+    func deleteAccount(currentPassword: String) async throws {
+        guard let user = Auth.auth().currentUser,
+              let email = user.email else {
+            throw AuthError.unknown
+        }
+        
+        let credential = EmailAuthProvider.credential(withEmail: email, password: currentPassword)
+        
+        do {
+            try await user.reauthenticate(with: credential)
+            try await user.delete()
+        } catch {
+            throw mapFirebaseError(error)
+        }
+    }
+    
+    func updateEmail(to newEmail: String, currentPassword: String) async throws {
+        guard let user = Auth.auth().currentUser,
+              let currentEmail = user.email else {
+            throw AuthError.unknown
+        }
+
+        let credential = EmailAuthProvider.credential(withEmail: currentEmail, password: currentPassword)
+
+        do {
+            try await user.reauthenticate(with: credential)
+            try await user.sendEmailVerification(beforeUpdatingEmail: newEmail)
+        } catch {
+            throw mapFirebaseError(error)
+        }
+
+    }
+    
     func mapFirebaseError(_ error: any Error) -> AuthError {
         
         guard let nsError = error as NSError? else { return .unknown }
@@ -114,6 +149,8 @@ extension AuthManager: AuthManagerInterface {
                 return .userNotFound
             case .emailAlreadyInUse:
                 return .emailAlreadyInUse
+            case .requiresRecentLogin:
+                return .requiresRecentLogin
             default:
                 return .unknown
             }

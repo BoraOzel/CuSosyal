@@ -15,6 +15,8 @@ protocol ProfileViewModelInterface {
     
     func logout()
     func fetchProfile() async
+    func updateProfile(name: String, surname: String, email: String, currentPassword: String?) async throws
+    func deleteProfile(password: String) async throws
 }
 
 class ProfileViewModel {
@@ -58,6 +60,24 @@ extension ProfileViewModel: ProfileViewModelInterface {
         catch {
             print("fetchProfile failed: \(error.localizedDescription)")
         }
+    }
+    
+    func updateProfile(name: String, surname: String, email: String, currentPassword: String? = nil) async throws {
+        try await networkManager.updateUserProfile(name: name, surname: surname, email: email)
+
+            if email != userEmail, let password = currentPassword {
+                try await authManager.updateEmail(to: email, currentPassword: password)
+            }
+        await MainActor.run {
+            self.userName = name
+            self.userSurname = surname
+            self.userEmail = email
+        }
+    }
+    
+    func deleteProfile(password: String) async throws {
+        try await networkManager.deleteUserData()
+        try await authManager.deleteAccount(currentPassword: password)
     }
     
 }

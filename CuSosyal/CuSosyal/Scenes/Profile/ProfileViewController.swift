@@ -10,6 +10,11 @@ import UIKit
 protocol ProfileViewControllerInterface {
     func fetchProfile()
     func setupTextFields()
+    func setEditMode(_ enabled: Bool)
+    func setupNavigationBar()
+    func presentPasswordAlert()
+    func performDeleteAccount(password: String)
+    func performUpdate(name: String, surname: String, email: String, currentPassword: String?)
 }
 
 class ProfileViewController: UIViewController,
@@ -20,6 +25,8 @@ class ProfileViewController: UIViewController,
     @IBOutlet weak var emailTextField: UITextField!
     
     private let viewModel: ProfileViewModelInterface
+    
+    private var isEditMode = false
     
     init(viewModel: ProfileViewModelInterface = ProfileViewModel()) {
         self.viewModel = viewModel
@@ -32,7 +39,7 @@ class ProfileViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchProfile()
+        setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,10 +58,74 @@ class ProfileViewController: UIViewController,
         navigationController?.pushViewController(resetVC, animated: true)
     }
     
+    @IBAction func deleteAccountButtonClicked(_ sender: Any) {
+        showConfirmationAlert(
+            title: "Hesabı Sil",
+            message: "Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+            confirmText: "Devam Et",
+            cancelText: "İptal"
+        ) { [weak self] action in
+            guard let self, action == .ok else { return }
+            self.presentPasswordAlert()
+        }
+    }
+    
     @IBAction func logoutButtonClicked(_ sender: Any) {
         viewModel.logout()
         guard let window = self.view.window else { return }
         Router.switchToAuth(window: window)
+    }
+    
+    @objc func editSaveTapped() {
+        guard isEditMode else { setEditMode(true); return }
+        
+        guard let name    = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let surname = surnameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let email   = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !name.isEmpty, !surname.isEmpty, !email.isEmpty else {
+            showAlert(title: "Hata", message: "Alanlar boş bırakılamaz.", buttonText: "Tamam")
+            return
+        }
+        
+        let emailChanged = email != viewModel.userEmail
+        
+        if emailChanged {
+            showTextInputAlert(
+                title: "Şifrenizi Girin",
+                message: "Email adresinizi güncellemek için mevcut şifrenizi girin.",
+                placeholder: "Şifre",
+                isSecure: true,
+                confirmText: "Kaydet",
+                confirmStyle: .default,
+                cancelText: "İptal"
+            ) { [weak self] password in
+                guard let self, let password, !password.isEmpty else { return }
+                self.performUpdate(name: name, surname: surname, email: email, currentPassword: password)
+            }
+        } else {
+            performUpdate(name: name, surname: surname, email: email, currentPassword: nil)
+        }
+    }
+    
+    func performUpdate(name: String, surname: String, email: String, currentPassword: String?) {
+        Task { [weak self] in
+            guard let self else { return }
+            do {
+                try await viewModel.updateProfile(name: name, surname: surname, email: email, currentPassword: currentPassword)
+                await MainActor.run {
+                    self.setEditMode(false)
+                    self.showAlert(
+                        title: "Doğrulama Gönderildi",
+                        message: "Yeni email adresinize bir doğrulama linki gönderildi. Linke tıkladıktan sonra email adresiniz güncellenecektir.",
+                        buttonText: "Tamam"
+                    )
+                }
+            } catch {
+                await MainActor.run {
+                    self.showAlert(title: "Hata", message: error.localizedDescription, buttonText: "Tamam")
+                }
+            }
+        }
     }
     
 }
@@ -79,4 +150,62 @@ extension ProfileViewController: ProfileViewControllerInterface {
         emailTextField.isUserInteractionEnabled = false
     }
     
+    func setEditMode(_ enabled: Bool) {
+        isEditMode = enabled
+        
+        nameTextField.isUserInteractionEnabled = enabled
+        surnameTextField.isUserInteractionEnabled = enabled
+        emailTextField.isUserInteractionEnabled = enabled
+        
+        navigationItem.rightBarButtonItem?.title = enabled ? "Kaydet" : "Düzenle"
+        
+        if enabled {
+            nameTextField.becomeFirstResponder()
+        }
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Düzenle",
+            style: .plain,
+            target: self,
+            action: #selector(editSaveTapped)
+        )
+    }
+    
+    func presentPasswordAlert() {
+        showTextInputAlert(
+            title: "Şifrenizi Girin",
+            message: "Hesabınızı silmek için mevcut şifrenizi girin.",
+            placeholder: "Şifre",
+            isSecure: true,
+            confirmText: "Hesabı Sil",
+            confirmStyle: .destructive,
+            cancelText: "İptal"
+        ) { [weak self] password in
+            guard let self, let password, !password.isEmpty else { return }
+            self.performDeleteAccount(password: password)
+        }
+    }
+    
+    func performDeleteAccount(password: String) {
+        Task { [weak self] in
+            guard let self else { return }
+            do {
+                try await viewModel.deleteProfile(password: password)
+                await MainActor.run {
+                    guard let window = self.view.window else { return }
+                    Router.switchToAuth(window: window)
+                }
+            } catch {
+                await MainActor.run {
+                    self.showAlert(title: "Hata",
+                                   message: error.localizedDescription,
+                                   buttonText: "Tamam")
+                }
+            }
+        }
+    }
+    
 }
+

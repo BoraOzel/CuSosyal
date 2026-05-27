@@ -16,6 +16,7 @@ enum AuthError: LocalizedError {
     case passwordsDontMatch
     case unknown
     case blank
+    case requiresRecentLogin
     
     var errorDescription: String? {
         switch self {
@@ -27,6 +28,7 @@ enum AuthError: LocalizedError {
         case .passwordsDontMatch: return "Parolalar eşleşmiyor."
         case .unknown: return "Bilinmeyen bir hata meydana geldi."
         case .blank: return "Lütfen tüm boşlukları doldurunuz."
+        case .requiresRecentLogin:   return "Bu işlem için tekrar giriş yapmanız gerekiyor."
         }
     }
 }
