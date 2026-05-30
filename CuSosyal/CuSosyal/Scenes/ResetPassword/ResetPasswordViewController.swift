@@ -21,8 +21,7 @@ class ResetPasswordViewController: UIViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        hideKeyboardWhenTappedAround()
     }
     
     init(viewModel: ResetPasswordViewModelInterface = ResetPasswordViewModel()) {

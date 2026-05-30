@@ -66,10 +66,6 @@ class AIChatViewController: UIViewController {
     
 }
 
-extension AIChatViewController: UITableViewDelegate {
-    
-}
-
 extension AIChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,7 +105,6 @@ extension AIChatViewController: UITextViewDelegate {
 extension AIChatViewController: AIChatViewControllerInterface {
     
     func setupTableView() {
-        messageTableView.delegate = self
         messageTableView.dataSource = self
         messageTableView.separatorStyle = .none
         messageTextView.delegate = self
@@ -136,6 +131,7 @@ extension AIChatViewController: AIChatViewControllerInterface {
             guard let self else { return }
             await viewModel.initializeChat()
         }
+        hideKeyboardWhenTappedAround()
     }
     
     func sendMessage() {

@@ -10,7 +10,7 @@ import UIKit
 protocol EditEventViewControllerInterface {
     func configureForMode()
     func setupNavigationBar()
-    func setupDescriptionTextView()
+    func setupUI()
 }
 
 class EditEventViewController: UIViewController, AlertPresentable {
@@ -36,7 +36,7 @@ class EditEventViewController: UIViewController, AlertPresentable {
         super.viewDidLoad()
         configureForMode()
         setupNavigationBar()
-        setupDescriptionTextView()
+        setupUI()
     }
     
     
@@ -95,7 +95,7 @@ extension EditEventViewController: EditEventViewControllerInterface {
         )
     }
     
-    func setupDescriptionTextView() {
+    func setupUI() {
         descriptionTextView.delegate = self
         descriptionTextView.layer.borderWidth = 0.5
         descriptionTextView.layer.borderColor = UIColor.separator.cgColor
@@ -103,6 +103,8 @@ extension EditEventViewController: EditEventViewControllerInterface {
         descriptionTextView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         descriptionTextView.isScrollEnabled = false
         descriptionTextView.font = eventTitleTextField.font
+        
+        hideKeyboardWhenTappedAround()
     }
     
 }

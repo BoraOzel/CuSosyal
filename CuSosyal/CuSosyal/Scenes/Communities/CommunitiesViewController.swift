@@ -36,6 +36,7 @@ class CommunitiesViewController: UIViewController {
         setupCollectionView()
         setCustomFlowLayout()
         fetchCommunities()
+        hideKeyboardWhenTappedAround()
     }
 }
 

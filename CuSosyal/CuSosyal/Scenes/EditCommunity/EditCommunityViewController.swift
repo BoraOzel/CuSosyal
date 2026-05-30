@@ -12,9 +12,8 @@ import PhotosUI
 protocol EditCommunityViewControllerInterface {
     func configureUI()
     func setupNavigationBar()
-    
     func presentImagePicker()
-    func setupDescriptionTextView()
+    func setupUI()
 }
 
 class EditCommunityViewController: UIViewController, AlertPresentable {
@@ -39,7 +38,7 @@ class EditCommunityViewController: UIViewController, AlertPresentable {
         super.viewDidLoad()
         configureUI()
         setupNavigationBar()
-        setupDescriptionTextView()
+        setupUI()
     }
     
     @IBAction func changeButtonClicked(_ sender: Any) {
@@ -112,7 +111,7 @@ extension EditCommunityViewController: EditCommunityViewControllerInterface {
         present(picker, animated: true)
     }
     
-    func setupDescriptionTextView() {
+    func setupUI() {
         descriptionTextView.delegate = self
         descriptionTextView.layer.borderWidth = 0.5
         descriptionTextView.layer.borderColor = UIColor.separator.cgColor
@@ -120,6 +119,7 @@ extension EditCommunityViewController: EditCommunityViewControllerInterface {
         descriptionTextView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         descriptionTextView.isScrollEnabled = false
         descriptionTextView.font = nameTextField.font
+        hideKeyboardWhenTappedAround()
     }
     
 }

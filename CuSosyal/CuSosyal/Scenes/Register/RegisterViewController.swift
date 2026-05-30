@@ -34,7 +34,7 @@ class RegisterViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func continueButtonClicked(_ sender: Any) {

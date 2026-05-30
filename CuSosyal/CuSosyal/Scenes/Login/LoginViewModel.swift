@@ -18,7 +18,7 @@ class LoginViewModel {
     init(authManager: AuthManagerInterface = AuthManager.shared) {
         self.authManager = authManager
     }
-    
+
 }
 
 extension LoginViewModel: LoginViewModelInterface {

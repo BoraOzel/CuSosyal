@@ -23,9 +23,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var emptyEventLabel: UILabel!
     
-    
-    
-    
     private let viewModel: HomeViewModelInterface
     
     init(viewModel: HomeViewModelInterface) {
@@ -52,7 +49,6 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         askAiView.updateGradientFrame()
     }
-    
     
     @IBAction func profileButtonClicked(_ sender: Any) {
         navigationController?.pushViewController(ProfileViewController(), animated: true)

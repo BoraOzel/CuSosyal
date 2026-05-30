@@ -38,7 +38,7 @@ enum Tags: String, Codable, CaseIterable {
     case Otomotiv = "Otomotiv"
     case Ataturk = "Atatürk"
     case Medya = "Medya"
-    case Havacilik = "Havacilik"
+    case Havacilik = "Havacılık"
     case Girisimcilik = "Girişimcilik"
     case Psikoloji = "Psikoloji"
     case Egitim = "Eğitim"

@@ -31,8 +31,7 @@ class LoginViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        hideKeyboardWhenTappedAround()
     }
 
     @IBAction func loginButtonClicked(_ sender: Any) {

@@ -40,6 +40,7 @@ class ProfileViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {

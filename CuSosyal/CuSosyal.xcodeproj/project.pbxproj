@@ -86,6 +86,7 @@
 		0FF706772FC58F0E00B7C17B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706752FC58F0E00B7C17B /* EventsViewController.swift */; };
 		0FF706782FC58F0E00B7C17B /* EventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706762FC58F0E00B7C17B /* EventsViewController.xib */; };
 		0FF7067A2FC58F1900B7C17B /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706792FC58F1900B7C17B /* EventsViewModel.swift */; };
+		0FF7067D2FCAFD1100B7C17B /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7067C2FCAFD1100B7C17B /* UIViewController+Keyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +164,7 @@
 		0FF706752FC58F0E00B7C17B /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		0FF706762FC58F0E00B7C17B /* EventsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsViewController.xib; sourceTree = "<group>"; };
 		0FF706792FC58F1900B7C17B /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		0FF7067C2FCAFD1100B7C17B /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +332,7 @@
 			children = (
 				0F190A152F69A06200BC8EF2 /* Tags+UI.swift */,
 				0FF706492FB3420800B7C17B /* UIView+Appearance.swift */,
+				0FF7067C2FCAFD1100B7C17B /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				0F5670982F93A4A0005FE755 /* CommunitiesViewController.swift in Sources */,
 				0F56709B2F93A4B8005FE755 /* CommunitiesViewModel.swift in Sources */,
 				0F5670B62F94EC18005FE755 /* EventCollectionViewCell.swift in Sources */,
+				0FF7067D2FCAFD1100B7C17B /* UIViewController+Keyboard.swift in Sources */,
 				0FF7067A2FC58F1900B7C17B /* EventsViewModel.swift in Sources */,
 				0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */,
 				0F5670AE2F94E184005FE755 /* CommunityDetailViewController.swift in Sources */,
