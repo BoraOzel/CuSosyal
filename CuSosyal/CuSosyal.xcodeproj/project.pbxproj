@@ -87,6 +87,7 @@
 		0FF706782FC58F0E00B7C17B /* EventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF706762FC58F0E00B7C17B /* EventsViewController.xib */; };
 		0FF7067A2FC58F1900B7C17B /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706792FC58F1900B7C17B /* EventsViewModel.swift */; };
 		0FF7067D2FCAFD1100B7C17B /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7067C2FCAFD1100B7C17B /* UIViewController+Keyboard.swift */; };
+		0FF7067F2FCEF20F00B7C17B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7067E2FCEF20F00B7C17B /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +166,7 @@
 		0FF706762FC58F0E00B7C17B /* EventsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsViewController.xib; sourceTree = "<group>"; };
 		0FF706792FC58F1900B7C17B /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		0FF7067C2FCAFD1100B7C17B /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		0FF7067E2FCEF20F00B7C17B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				0F190A1D2F72CA8300BC8EF2 /* CustomViews */,
 				0F1909DA2F57578400BC8EF2 /* Scenes */,
 				0F1909C82F57572D00BC8EF2 /* Info.plist */,
+				0FF7067E2FCEF20F00B7C17B /* PrivacyInfo.xcprivacy */,
 				0FF706592FBE170B00B7C17B /* GenerativeAI-Info.plist */,
 				0F190A022F66A5F000BC8EF2 /* GoogleService-Info.plist */,
 			);
@@ -559,6 +562,7 @@
 				0F5670BA2F9A21DD005FE755 /* EventDetailViewController.xib in Resources */,
 				0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */,
 				0F190A132F68990C00BC8EF2 /* TagsViewController.xib in Resources */,
+				0FF7067F2FCEF20F00B7C17B /* PrivacyInfo.xcprivacy in Resources */,
 				0F190A032F66A5F000BC8EF2 /* GoogleService-Info.plist in Resources */,
 				0FF7065A2FBE170B00B7C17B /* GenerativeAI-Info.plist in Resources */,
 				0FF7066A2FC44C1700B7C17B /* EditEventViewController.xib in Resources */,
@@ -663,6 +667,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -696,6 +701,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
