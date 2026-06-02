@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -34,37 +35,46 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hDf-BV-bjQ">
-                            <rect key="frame" x="10" y="88.333333333333343" width="363" height="230.00000000000003"/>
+                            <rect key="frame" x="10" y="88.333333333333343" width="363" height="281"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ad" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-MM-CZW">
-                                    <rect key="frame" x="0.0" y="0.0" width="363" height="34"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="363" height="34.333333333333336"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Soyad" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDS-kE-KEV">
-                                    <rect key="frame" x="0.0" y="48.999999999999972" width="363" height="34"/>
+                                    <rect key="frame" x="0.0" y="49.333333333333343" width="363" height="34.333333333333343"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cVl-bI-MgD">
-                                    <rect key="frame" x="0.0" y="97.999999999999972" width="363" height="34"/>
+                                    <rect key="frame" x="0.0" y="98.666666666666657" width="363" height="34.333333333333343"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Parola" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0XQ-Fa-rGI">
-                                    <rect key="frame" x="0.0" y="146.99999999999997" width="363" height="34"/>
+                                    <rect key="frame" x="0.0" y="147.99999999999997" width="363" height="34.333333333333343"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Parolayı doğrula" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Id6-qe-yHu">
-                                    <rect key="frame" x="0.0" y="195.99999999999997" width="363" height="34"/>
+                                    <rect key="frame" x="0.0" y="197.33333333333334" width="363" height="34.333333333333343"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwS-0P-VyD">
+                                    <rect key="frame" x="0.0" y="246.66666666666666" width="363" height="34.333333333333343"/>
+                                    <color key="tintColor" name="primaryColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Gizlilik Politikası"/>
+                                    <connections>
+                                        <action selector="privacyPolicyButtonClicked:" destination="-1" eventType="touchUpInside" id="5tr-t3-7bA"/>
+                                    </connections>
+                                </button>
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJp-ER-Th4">
-                            <rect key="frame" x="143.33333333333334" y="518.33333333333337" width="96.666666666666657" height="34.333333333333371"/>
+                            <rect key="frame" x="143.33333333333334" y="569.33333333333337" width="96.666666666666657" height="34.333333333333371"/>
                             <color key="tintColor" name="primaryColor"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="tinted" title="Devam Et">

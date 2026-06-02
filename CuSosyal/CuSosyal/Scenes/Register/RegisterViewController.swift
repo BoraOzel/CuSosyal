@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol RegisterViewControllerInterface: AnyObject {
     func navigateToTags(vc: UIViewController)
@@ -71,6 +72,11 @@ class RegisterViewController: UIViewController,
         navigateToTags(vc: tagsVC)
     }
     
+    @IBAction func privacyPolicyButtonClicked(_ sender: Any) {
+        guard let url = URL(string: "https://cusosyal.web.app/") else { return }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true)
+    }
     
 }
 
