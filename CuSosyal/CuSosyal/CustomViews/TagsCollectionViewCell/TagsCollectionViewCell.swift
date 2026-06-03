@@ -13,7 +13,7 @@ class TagsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tagImageView: UIImageView!
     @IBOutlet weak var tagNameLabel: UILabel!
     
-    private let unselectedAlpha: CGFloat = 0.5
+    private let unselectedAlpha: CGFloat = 0.3
     private let selectedAlpha: CGFloat = 0.95
     
     override func awakeFromNib() {
@@ -37,7 +37,7 @@ class TagsCollectionViewCell: UICollectionViewCell {
         self.layer.borderWidth = 1.5
         self.layer.borderColor = UIColor.systemGray5.cgColor
         self.backgroundColor = .clear
-        self.containerView.backgroundColor = UIColor.systemBackground.withAlphaComponent(unselectedAlpha)
+        self.containerView.backgroundColor = UIColor.white.withAlphaComponent(unselectedAlpha)
     }
     
     func updateSelectionUI() {
@@ -45,7 +45,7 @@ class TagsCollectionViewCell: UICollectionViewCell {
         let targetBorderColor = isSelected ? UIColor(named: "accentColor")?.cgColor : UIColor.systemGray5.cgColor
         
         UIView.animate(withDuration: 0.2) {
-            self.backgroundColor = UIColor.systemBackground.withAlphaComponent(targetAlpha)
+            self.backgroundColor = UIColor.white.withAlphaComponent(targetAlpha)
             self.layer.borderColor = targetBorderColor
         }
     }

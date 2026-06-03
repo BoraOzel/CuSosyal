@@ -28,7 +28,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="666-Yj-kWJ">
                             <rect key="frame" x="91.666666666666686" y="30" width="200" height="158.33333333333334"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cu-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bgt-Kd-lCY">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cu_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="bgt-Kd-lCY">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="LdV-0B-pz5"/>
@@ -119,7 +119,7 @@
         </view>
     </objects>
     <resources>
-        <image name="cu-logo" width="225" height="225"/>
+        <image name="Cu_Logo" width="1558" height="1554"/>
         <namedColor name="primaryColor">
             <color red="0.2196078431372549" green="0.55686274509803924" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

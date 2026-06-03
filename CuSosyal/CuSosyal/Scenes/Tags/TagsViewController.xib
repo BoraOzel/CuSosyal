@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -47,7 +48,7 @@
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Kaydol">
-                                        <color key="baseForegroundColor" name="accentColor"/>
+                                        <color key="baseForegroundColor" name="primaryColor"/>
                                         <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </buttonConfiguration>
                                     <connections>
@@ -57,7 +58,7 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" name="accentColor"/>
+                    <color key="backgroundColor" name="primaryColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="iPm-Tb-2HV" secondAttribute="bottom" constant="5" id="UuS-M4-BNk"/>
                         <constraint firstItem="iPm-Tb-2HV" firstAttribute="top" secondItem="ZKc-TT-uUQ" secondAttribute="top" constant="5" id="eEn-Hc-zdg"/>
@@ -67,7 +68,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="accentColor"/>
+            <color key="backgroundColor" name="primaryColor"/>
             <constraints>
                 <constraint firstItem="ZKc-TT-uUQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="76i-3r-nxz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZKc-TT-uUQ" secondAttribute="bottom" id="P3g-Ma-1h5"/>
@@ -78,8 +79,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="accentColor">
-            <color red="0.54509803921568623" green="0.76470588235294112" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="primaryColor">
+            <color red="0.2196078431372549" green="0.55686274509803924" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
