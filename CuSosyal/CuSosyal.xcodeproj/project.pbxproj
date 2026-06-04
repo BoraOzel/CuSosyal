@@ -88,6 +88,7 @@
 		0FF7067A2FC58F1900B7C17B /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706792FC58F1900B7C17B /* EventsViewModel.swift */; };
 		0FF7067D2FCAFD1100B7C17B /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7067C2FCAFD1100B7C17B /* UIViewController+Keyboard.swift */; };
 		0FF7067F2FCEF20F00B7C17B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7067E2FCEF20F00B7C17B /* PrivacyInfo.xcprivacy */; };
+		0FF706E12FCB000100B7C17B /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF706E02FCB000100B7C17B /* UIViewController+Loading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +168,7 @@
 		0FF706792FC58F1900B7C17B /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		0FF7067C2FCAFD1100B7C17B /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		0FF7067E2FCEF20F00B7C17B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		0FF706E02FCB000100B7C17B /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +338,7 @@
 				0F190A152F69A06200BC8EF2 /* Tags+UI.swift */,
 				0FF706492FB3420800B7C17B /* UIView+Appearance.swift */,
 				0FF7067C2FCAFD1100B7C17B /* UIViewController+Keyboard.swift */,
+				0FF706E02FCB000100B7C17B /* UIViewController+Loading.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				0F56709B2F93A4B8005FE755 /* CommunitiesViewModel.swift in Sources */,
 				0F5670B62F94EC18005FE755 /* EventCollectionViewCell.swift in Sources */,
 				0FF7067D2FCAFD1100B7C17B /* UIViewController+Keyboard.swift in Sources */,
+				0FF706E12FCB000100B7C17B /* UIViewController+Loading.swift in Sources */,
 				0FF7067A2FC58F1900B7C17B /* EventsViewModel.swift in Sources */,
 				0F190A072F66C1F300BC8EF2 /* AlertPresentable.swift in Sources */,
 				0F5670AE2F94E184005FE755 /* CommunityDetailViewController.swift in Sources */,
@@ -662,7 +666,7 @@
 				DEVELOPMENT_TEAM = 95B36VD32G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CuSosyal/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Çü Sosyal";
+				INFOPLIST_KEY_CFBundleDisplayName = "ÇÜ Sosyal";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -697,7 +701,7 @@
 				DEVELOPMENT_TEAM = 95B36VD32G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CuSosyal/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Çü Sosyal";
+				INFOPLIST_KEY_CFBundleDisplayName = "ÇÜ Sosyal";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

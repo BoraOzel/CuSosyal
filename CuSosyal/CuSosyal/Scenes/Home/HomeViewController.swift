@@ -24,7 +24,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var emptyEventLabel: UILabel!
     
     private let viewModel: HomeViewModelInterface
-    
+    private var isInitialLoad = true
+
     init(viewModel: HomeViewModelInterface) {
         self.viewModel = viewModel
         super.init(nibName: "HomeViewController", bundle: nil)
@@ -138,6 +139,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: HomeViewControllerInterface {
     
     func fetchHomeData() {
+        if isInitialLoad {
+            showLoadingIndicator()
+        }
         Task { [weak self] in
             guard let self else { return }
             await viewModel.fetchHomeData()
@@ -146,6 +150,8 @@ extension HomeViewController: HomeViewControllerInterface {
                 self.interestCollectionView.reloadData()
                 self.savedEventsCollectionView.reloadData()
                 self.updateSavedEventsLabel()
+                self.hideLoadingIndicator()
+                self.isInitialLoad = false
             }
         }
     }

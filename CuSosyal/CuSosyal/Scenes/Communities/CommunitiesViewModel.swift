@@ -12,6 +12,7 @@ protocol CommunitiesViewModelInterface {
     func numberOfItems() -> Int
     func getItem(at index: Int) -> Communities?
     func filterCommunities(with query: String)
+    func logoURLs() -> [URL]
 }
 
 class CommunitiesViewModel {
@@ -53,6 +54,10 @@ extension CommunitiesViewModel: CommunitiesViewModelInterface {
     
     func getItem(at index: Int) -> Communities? {
         return currentCommunities[index]
+    }
+
+    func logoURLs() -> [URL] {
+        return communities.compactMap { URL(string: $0.logoUrl ?? "") }
     }
     
     func filterCommunities(with query: String) {

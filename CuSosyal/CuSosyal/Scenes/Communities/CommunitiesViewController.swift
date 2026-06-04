@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol CommunitiesViewControllerInterface {
     func setupCollectionView()
     func setCustomFlowLayout()
     func fetchCommunities()
     func reloadData()
+    func prefetchLogos(_ urls: [URL]) async
 }
 
 class CommunitiesViewController: UIViewController {
@@ -109,16 +111,37 @@ extension CommunitiesViewController: CommunitiesViewControllerInterface {
     }
     
     func fetchCommunities() {
+        showLoadingIndicator()
         Task { [weak self] in
             guard let self else { return }
             await viewModel.getCommunities()
+            await prefetchLogos(viewModel.logoURLs())
             reloadData()
+            hideLoadingIndicator()
         }
     }
-    
     @MainActor
     func reloadData() {
         collectionView.reloadData()
+    }
+    
+    func prefetchLogos(_ urls: [URL]) async {
+        guard !urls.isEmpty else { return }
+        
+        await withTaskGroup(of: Void.self) { group in
+            group.addTask {
+                await withCheckedContinuation { continuation in
+                    SDWebImagePrefetcher.shared.prefetchURLs(urls, progress: nil) { _, _ in
+                        continuation.resume()
+                    }
+                }
+            }
+            group.addTask {
+                try? await Task.sleep(nanoseconds: 6_000_000_000)
+            }
+            await group.next()
+            group.cancelAll()
+        }
     }
     
 }
