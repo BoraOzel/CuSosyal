@@ -12,18 +12,22 @@ protocol CommunityDetailViewModelInterface {
     var community: Communities { get }
     var communityDescription: String { get }
     var isCurrentUserAdmin: Bool { get }
+    var isFavourite: Bool { get }
     
     func getEvents() async
     func numberOfEvents() -> Int
     func getEvent(at index: Int) -> Events?
     func refreshCommunity() async
+    func loadFavouriteStatus() async
+    func toggleFavourite() async
 }
 
 final class CommunityDetailViewModel {
     
-    private(set) var community: Communities
     private let networkManager: any NetworkManagerInterface
+    private(set) var community: Communities
     private var events: [Events] = []
+    private(set) var isFavourite: Bool = false
     
     init(community: Communities,
          networkManager: any NetworkManagerInterface = NetworkManager.shared) {
@@ -75,4 +79,31 @@ extension CommunityDetailViewModel: CommunityDetailViewModelInterface {
         }
     }
     
+    func loadFavouriteStatus() async {
+        guard let communityId = community.id else { return }
+        do {
+            let user = try await networkManager.fetchCurrentUser()
+            let favourite = user.favouriteClubs?.contains(communityId) ?? false
+            await MainActor.run { self.isFavourite = favourite }
+        }
+        catch {
+            print("loadFavouriteStatus failed: \(error.localizedDescription)")
+        }
+    }
+    
+    func toggleFavourite() async {
+        guard let communityId = community.id else { return }
+        do {
+            if isFavourite {
+                try await networkManager.removeFavouriteClub(clubId: communityId)
+            }
+            else {
+                try await networkManager.addFavouriteClub(clubId: communityId)
+            }
+            await MainActor.run { self.isFavourite.toggle() }
+        }
+        catch {
+            print("toggleFavourite failed: \(error.localizedDescription)")
+        }
+    }
 }

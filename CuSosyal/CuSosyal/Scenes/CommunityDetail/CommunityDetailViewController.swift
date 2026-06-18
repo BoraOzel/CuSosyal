@@ -14,6 +14,8 @@ protocol CommunityDetailViewControllerInterface {
     func fetchEvents()
     func updateEventsUI()
     func setupAdminNavigationBar()
+    func setupFavNavigationBar()
+    func updateFavButtonIcon()
 }
 
 class CommunityDetailViewController: UIViewController {
@@ -26,6 +28,7 @@ class CommunityDetailViewController: UIViewController {
     @IBOutlet weak var emptyEventLabel: UILabel!
     
     private let viewModel: CommunityDetailViewModelInterface
+    private var favButton: UIBarButtonItem?
     
     init(viewModel: CommunityDetailViewModelInterface) {
         self.viewModel = viewModel
@@ -41,6 +44,7 @@ class CommunityDetailViewController: UIViewController {
         setupCollectionView()
         configureUI()
         setupAdminNavigationBar()
+        setupFavNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +69,14 @@ class CommunityDetailViewController: UIViewController {
         let editVC = EditCommunityViewController(viewModel: editVM)
         navigationController?.pushViewController(editVC, animated: true)
         
+    }
+    
+    @objc func favButtonTapped() {
+        Task { [weak self] in
+            guard let self else { return }
+            await viewModel.toggleFavourite()
+            await MainActor.run { self.updateFavButtonIcon() }
+        }
     }
     
 }
@@ -156,6 +168,29 @@ extension CommunityDetailViewController: CommunityDetailViewControllerInterface 
                                          target: self,
                                          action: #selector(editButtonTapped))
         navigationItem.rightBarButtonItems = [editButton, addButton]
+    }
+    
+    func setupFavNavigationBar() {
+        let favButton = UIBarButtonItem(image: UIImage(systemName: "heart"),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(favButtonTapped))
+        self.favButton = favButton
+        
+        var items = navigationItem.rightBarButtonItems ?? []
+        items.append(favButton)
+        navigationItem.rightBarButtonItems = items
+        
+        Task { [weak self] in
+            guard let self else { return }
+            await viewModel.loadFavouriteStatus()
+            await MainActor.run { self.updateFavButtonIcon() }
+        }
+    }
+    
+    func updateFavButtonIcon() {
+        let imageName = viewModel.isFavourite ? "heart.fill" : "heart"
+        favButton?.image = UIImage(systemName: imageName)
     }
     
 }

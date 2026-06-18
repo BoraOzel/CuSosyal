@@ -21,4 +21,5 @@ struct Users: Codable {
     let interestedTags: [Tags]?
 
     var reservedEvents: [String]?
+    var favouriteClubs: [String]?
 }

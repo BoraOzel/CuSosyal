@@ -16,6 +16,8 @@ protocol NetworkManagerInterface: AnyObject {
     func fetchCurrentUser() async throws -> Users
     func joinEvent(userId: String, eventId: String) async throws
     func leaveEvent(userId: String, eventId: String) async throws
+    func addFavouriteClub(clubId: String) async throws
+    func removeFavouriteClub(clubId: String) async throws
     func fetchSavedEvents(eventIds: [String]) async throws -> [Events]
     func updateUserTags(_ tags: [Tags]) async throws
     func createEvent(_ event: Events) async throws
@@ -92,6 +94,20 @@ class NetworkManager: NetworkManagerInterface {
     
     func leaveEvent(userId: String, eventId: String) async throws {
         try await db.collection("users").document(userId).updateData(["reservedEvents" : FieldValue.arrayRemove([eventId])])
+    }
+    
+    func addFavouriteClub(clubId: String) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            throw NSError(domain: "Auth", code: 401)
+        }
+        try await db.collection("users").document(uid).updateData(["favouriteClubs" : FieldValue.arrayUnion([clubId])])
+    }
+    
+    func removeFavouriteClub(clubId: String) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            throw NSError(domain: "Auth", code: 401)
+        }
+        try await db.collection("users").document(uid).updateData(["favouriteClubs" : FieldValue.arrayRemove([clubId])])
     }
     
     func updateUserTags(_ tags: [Tags]) async throws {
