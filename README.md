@@ -2,7 +2,7 @@
 
 <img src="CuSosyal/CuSosyal/Application/Assets.xcassets/AppIcon.appiconset/cu-sosyal-appicon.png" width="120" alt="CuSosyal App Icon" />
 
-# CuSosyal
+# ÇÜ Sosyal
 
 **A campus social platform for university students — discover clubs, join events, and chat with an AI assistant.**
 
