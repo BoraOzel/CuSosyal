@@ -11,8 +11,7 @@ final class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewControllers = [createHomeNC(), createCommunityNC(), createEventsNC(), createAiChatNC()]
+        viewControllers = [createHomeNC(), createCommunityNC(), createFavouriteClubsNC(), createEventsNC(), createAiChatNC()]
         configureTabBarAppearance()
     }
     
@@ -28,15 +27,21 @@ final class MainTabBarController: UITabBarController {
         return UINavigationController(rootViewController: communityVC)
     }
     
+    func createFavouriteClubsNC() -> UINavigationController {
+        let favouriteClubsVC = FavouriteClubsViewController()
+        favouriteClubsVC.tabBarItem = UITabBarItem(title: "Favoriler", image: UIImage(systemName: "star.fill"), tag: 2)
+        return UINavigationController(rootViewController: favouriteClubsVC)
+    }
+    
     func createEventsNC() -> UINavigationController {
         let eventsVC = EventsViewController(viewModel: EventsViewModel())
-        eventsVC.tabBarItem = UITabBarItem(title: "Etkinlikler", image: UIImage(systemName: "calendar"), tag: 2)
+        eventsVC.tabBarItem = UITabBarItem(title: "Etkinlikler", image: UIImage(systemName: "calendar"), tag: 3)
         return UINavigationController(rootViewController: eventsVC)
     }
     
     func createAiChatNC() -> UINavigationController {
         let aiChatVC = AIChatViewController(viewModel: AIChatViewModel())
-        aiChatVC.tabBarItem = UITabBarItem(title: "AI Asistan", image: UIImage(systemName: "sparkles"), tag: 3)
+        aiChatVC.tabBarItem = UITabBarItem(title: "AI Asistan", image: UIImage(systemName: "sparkles"), tag: 4)
         return UINavigationController(rootViewController: aiChatVC)
     }
     

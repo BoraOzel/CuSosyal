@@ -42,6 +42,9 @@
 		0F190A202F72CAF300BC8EF2 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A1E2F72CAF300BC8EF2 /* TagsCollectionViewCell.swift */; };
 		0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F190A1F2F72CAF300BC8EF2 /* TagsCollectionViewCell.xib */; };
 		0F190A492F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F190A482F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift */; };
+		0F4F5B3A2FE5483500F0A239 /* FavouriteClubsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F4F5B392FE5483500F0A239 /* FavouriteClubsViewController.xib */; };
+		0F4F5B3B2FE5483500F0A239 /* FavouriteClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4F5B382FE5483500F0A239 /* FavouriteClubsViewController.swift */; };
+		0F4F5B3D2FE5484300F0A239 /* FavouriteClubsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4F5B3C2FE5484300F0A239 /* FavouriteClubsViewModel.swift */; };
 		0F5670912F914568005FE755 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56708F2F914568005FE755 /* ProfileViewController.swift */; };
 		0F5670922F914568005FE755 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5670902F914568005FE755 /* ProfileViewController.xib */; };
 		0F5670942F91457F005FE755 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5670932F91457F005FE755 /* ProfileViewModel.swift */; };
@@ -124,6 +127,9 @@
 		0F190A1E2F72CAF300BC8EF2 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F190A1F2F72CAF300BC8EF2 /* TagsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsCollectionViewCell.xib; sourceTree = "<group>"; };
 		0F190A482F72D97F00BC8EF2 /* ThreeColumnGridFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeColumnGridFlowLayout.swift; sourceTree = "<group>"; };
+		0F4F5B382FE5483500F0A239 /* FavouriteClubsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteClubsViewController.swift; sourceTree = "<group>"; };
+		0F4F5B392FE5483500F0A239 /* FavouriteClubsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteClubsViewController.xib; sourceTree = "<group>"; };
+		0F4F5B3C2FE5484300F0A239 /* FavouriteClubsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteClubsViewModel.swift; sourceTree = "<group>"; };
 		0F56708F2F914568005FE755 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0F5670902F914568005FE755 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		0F5670932F91457F005FE755 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 		0F1909DA2F57578400BC8EF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0F4F5B372FE5481900F0A239 /* FavouriteClubs */,
 				0FF706742FC58EFC00B7C17B /* Events */,
 				0FF7066D2FC4D9CC00B7C17B /* EditCommunity */,
 				0FF706662FC44BFF00B7C17B /* EditEvent */,
@@ -352,6 +359,16 @@
 				0F56709C2F93B385005FE755 /* TagsCollectionViewCell */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		0F4F5B372FE5481900F0A239 /* FavouriteClubs */ = {
+			isa = PBXGroup;
+			children = (
+				0F4F5B382FE5483500F0A239 /* FavouriteClubsViewController.swift */,
+				0F4F5B3C2FE5484300F0A239 /* FavouriteClubsViewModel.swift */,
+				0F4F5B392FE5483500F0A239 /* FavouriteClubsViewController.xib */,
+			);
+			path = FavouriteClubs;
 			sourceTree = "<group>";
 		};
 		0F56708E2F91454B005FE755 /* Profile */ = {
@@ -563,6 +580,7 @@
 				0F190A212F72CAF300BC8EF2 /* TagsCollectionViewCell.xib in Resources */,
 				0F1909D02F57572D00BC8EF2 /* Assets.xcassets in Resources */,
 				0F5670BA2F9A21DD005FE755 /* EventDetailViewController.xib in Resources */,
+				0F4F5B3A2FE5483500F0A239 /* FavouriteClubsViewController.xib in Resources */,
 				0F1909D22F57572D00BC8EF2 /* LaunchScreen.storyboard in Resources */,
 				0F190A132F68990C00BC8EF2 /* TagsViewController.xib in Resources */,
 				0FF7067F2FCEF20F00B7C17B /* PrivacyInfo.xcprivacy in Resources */,
@@ -588,6 +606,7 @@
 				0F56709E2F93C200005FE755 /* DynamicFlowLayoutCustomizable.swift in Sources */,
 				0FF706652FC1B2E200B7C17B /* CalendarError.swift in Sources */,
 				0FF706702FC4D9E100B7C17B /* EditCommunityViewController.swift in Sources */,
+				0F4F5B3D2FE5484300F0A239 /* FavouriteClubsViewModel.swift in Sources */,
 				0F190A012F66A32A00BC8EF2 /* Router.swift in Sources */,
 				0FF7064A2FB3420800B7C17B /* UIView+Appearance.swift in Sources */,
 				0F190A122F68990C00BC8EF2 /* TagsViewController.swift in Sources */,
@@ -603,6 +622,7 @@
 				0F1909FD2F615DE000BC8EF2 /* AuthManager.swift in Sources */,
 				0F1909F12F603C2B00BC8EF2 /* Communities.swift in Sources */,
 				0F190A182F72B0B200BC8EF2 /* TagsViewModel.swift in Sources */,
+				0F4F5B3B2FE5483500F0A239 /* FavouriteClubsViewController.swift in Sources */,
 				0FF7066C2FC44C2600B7C17B /* EditEventViewModel.swift in Sources */,
 				0F190A1A2F72B0C000BC8EF2 /* RegisterViewModel.swift in Sources */,
 				0FF706732FC4D9F000B7C17B /* EditCommunityViewModel.swift in Sources */,

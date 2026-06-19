@@ -11,6 +11,7 @@ import FirebaseStorage
 
 protocol NetworkManagerInterface: AnyObject {
     func fetchCommunities() async throws -> [Communities]
+    func fetchFavouriteClubs() async throws -> [Communities]
     func fetchAllEvents() async throws -> [Events]
     func fetchEvents(for communityId: String) async throws -> [Events]
     func fetchCurrentUser() async throws -> Users
@@ -49,6 +50,26 @@ class NetworkManager: NetworkManagerInterface {
                 return nil
             }
         }
+    }
+    
+    func fetchFavouriteClubs() async throws -> [Communities] {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            throw NSError(domain: "Auth", code: 401)
+        }
+
+        let userDoc = try await db.collection("users").document(uid).getDocument()
+        let clubIds = userDoc.get("favouriteClubs") as? [String] ?? []
+
+        guard !clubIds.isEmpty else { return [] }
+
+        var clubs: [Communities] = []
+        for clubId in clubIds {
+            let document = try await db.collection("clubs").document(clubId).getDocument()
+            if let club = try? document.data(as: Communities.self) {
+                clubs.append(club)
+            }
+        }
+        return clubs
     }
     
     func fetchAllEvents() async throws -> [Events] {

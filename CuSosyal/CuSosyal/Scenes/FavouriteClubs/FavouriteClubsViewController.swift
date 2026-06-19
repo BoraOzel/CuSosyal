@@ -1,14 +1,14 @@
 //
-//  CommunitiesViewController.swift
+//  FavouriteClubsViewController.swift
 //  CuSosyal
 //
-//  Created by Bora Özel on 18/4/26.
+//  Created by Bora Özel on 19/6/26.
 //
 
 import UIKit
 import SDWebImage
 
-protocol CommunitiesViewControllerInterface {
+protocol FavouriteClubsViewControllerInterface {
     func setupCollectionView()
     func setCustomFlowLayout()
     func fetchCommunities()
@@ -16,17 +16,16 @@ protocol CommunitiesViewControllerInterface {
     func prefetchLogos(_ urls: [URL]) async
 }
 
-class CommunitiesViewController: UIViewController {
+class FavouriteClubsViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let viewModel: CommunitiesViewModelInterface
+    private let viewModel: FavouriteClubsViewModelInterface
     
-    init(viewModel: CommunitiesViewModelInterface = CommunitiesViewModel()) {
+    init(viewModel: FavouriteClubsViewModelInterface = FavouriteClubsViewModel()) {
         self.viewModel = viewModel
-        super.init(nibName: "CommunitiesViewController", bundle: nil)
+        super.init(nibName: "FavouriteClubsViewController", bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -37,12 +36,16 @@ class CommunitiesViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         setCustomFlowLayout()
-        fetchCommunities()
-        hideKeyboardWhenTappedAround()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchCommunities()
+    }
+    
 }
 
-extension CommunitiesViewController: UICollectionViewDelegate {
+extension FavouriteClubsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let community = viewModel.getItem(at: indexPath.item) else { return }
@@ -54,7 +57,7 @@ extension CommunitiesViewController: UICollectionViewDelegate {
     
 }
 
-extension CommunitiesViewController: UICollectionViewDataSource {
+extension FavouriteClubsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItems()
@@ -72,27 +75,7 @@ extension CommunitiesViewController: UICollectionViewDataSource {
     
 }
 
-extension CommunitiesViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.filterCommunities(with: searchText)
-        reloadData()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-        viewModel.filterCommunities(with: "")
-        reloadData()
-    }
-    
-}
-
-extension CommunitiesViewController: CommunitiesViewControllerInterface {
+extension FavouriteClubsViewController: FavouriteClubsViewControllerInterface {
     
     func setupCollectionView() {
         collectionView.delegate = self
@@ -100,7 +83,6 @@ extension CommunitiesViewController: CommunitiesViewControllerInterface {
         
         collectionView.register(UINib(nibName: "CommunitiesCollectionViewCell", bundle: nil),
                                 forCellWithReuseIdentifier: "CommunitiesCollectionViewCell")
-        collectionView.collectionViewLayout = SingleColumnDynamicHeightFlowLayout()
     }
     
     func setCustomFlowLayout() {
@@ -114,7 +96,7 @@ extension CommunitiesViewController: CommunitiesViewControllerInterface {
         showLoadingIndicator()
         Task { [weak self] in
             guard let self else { return }
-            await viewModel.getCommunities()
+            await viewModel.getFavouriteCommunities()
             await prefetchLogos(viewModel.logoURLs())
             reloadData()
             hideLoadingIndicator()
@@ -144,9 +126,9 @@ extension CommunitiesViewController: CommunitiesViewControllerInterface {
             group.cancelAll()
         }
     }
-    
+
 }
 
-extension CommunitiesViewController: DynamicFlowLayoutCustomizable {
+extension FavouriteClubsViewController: DynamicFlowLayoutCustomizable {
     typealias CustomLayout = SingleColumnDynamicHeightFlowLayout
 }
