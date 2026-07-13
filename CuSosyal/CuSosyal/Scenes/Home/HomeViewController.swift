@@ -56,11 +56,11 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startChatButtonClicked(_ sender: Any) {
-        tabBarController?.selectedIndex = 3
+        tabBarController?.selectedIndex = 4
     }
     
     @objc func askAiTapped() {
-        tabBarController?.selectedIndex = 3
+        tabBarController?.selectedIndex = 4
     }
     
 }
