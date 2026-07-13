@@ -16,7 +16,7 @@ protocol EditEventViewModelInterface {
     var isEditMode: Bool { get }
     var existingEvent: Events? { get }
     
-    func save(title: String, location: String, date: Date, description: String) async throws
+    func save(title: String, location: String, date: Date, description: String, capacity: Int?) async throws
 }
 
 class EditEventViewModel {
@@ -44,14 +44,16 @@ class EditEventViewModel {
 
 extension EditEventViewModel: EditEventViewModelInterface {
     
-    func save(title: String, location: String, date: Date, description: String) async throws {
+    func save(title: String, location: String, date: Date, description: String, capacity: Int?) async throws {
         switch mode {
         case .create(let communityId):
             let newEvent = Events(clubId: communityId,
                                   title: title,
                                   location: location,
                                   date: date,
-                                  description: description)
+                                  description: description,
+                                  capacity: capacity,
+                                  attendeeCount: 0)
             try await networkManager.createEvent(newEvent)
         case .edit(let existingEvent):
             guard let eventId = existingEvent.id else {
@@ -63,7 +65,8 @@ extension EditEventViewModel: EditEventViewModelInterface {
                 title: title,
                 location: location,
                 date: date,
-                description: description
+                description: description,
+                capacity: capacity
             )
         }
     }

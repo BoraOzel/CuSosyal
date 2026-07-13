@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventDetailViewController" customModule="CuSosyal" customModuleProvider="target">
             <connections>
+                <outlet property="capacityLabel" destination="ZdM-ym-t18" id="Tt9-su-D1a"/>
                 <outlet property="containerView" destination="hhB-7K-8XR" id="dcY-a2-3wv"/>
                 <outlet property="dateLabel" destination="acu-Xr-fw1" id="y5j-OR-1yf"/>
                 <outlet property="descriptionContainerView" destination="RiL-bS-ayI" id="PEU-UL-ovX"/>
@@ -40,39 +42,45 @@
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="cCC-n9-fzI">
-                                    <rect key="frame" x="0.0" y="205" width="383" height="90"/>
+                                    <rect key="frame" x="0.0" y="205" width="383" height="110"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Etkinlik adı" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etk-d8-Jma">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="36"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="27.666666666666668"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Tarih" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acu-Xr-fw1">
-                                            <rect key="frame" x="0.0" y="39" width="383" height="24"/>
+                                            <rect key="frame" x="0.0" y="30.666666666666686" width="383" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Konum" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akp-bS-LSL">
-                                            <rect key="frame" x="0.0" y="66" width="383" height="24"/>
+                                            <rect key="frame" x="0.0" y="57.666666666666686" width="383" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Kapasite" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdM-ym-t18">
+                                            <rect key="frame" x="0.0" y="84.666666666666686" width="383" height="25.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="90" id="sEZ-LW-nf2"/>
+                                        <constraint firstAttribute="height" constant="110" id="sEZ-LW-nf2"/>
                                     </constraints>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fzr-d8-0tv">
-                                    <rect key="frame" x="0.0" y="300" width="383" height="301"/>
+                                    <rect key="frame" x="0.0" y="320" width="383" height="281"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiL-bS-ayI">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="301"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="281"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Etkinlik açıklaması" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hho-Pp-Lho">
-                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="301"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="281"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

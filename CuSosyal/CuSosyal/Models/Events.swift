@@ -15,4 +15,13 @@ struct Events: Codable {
     let location: String
     let date: Date
     let description: String
+    
+    var capacity: Int?
+    var attendeeCount: Int?
+    
+    var currentAttendees: Int { attendeeCount ?? 0 }
+    var isFull: Bool {
+        guard let capacity else { return false }
+        return currentAttendees >= capacity
+    }
 }

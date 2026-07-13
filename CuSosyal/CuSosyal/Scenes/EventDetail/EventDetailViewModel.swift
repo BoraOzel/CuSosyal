@@ -13,9 +13,10 @@ protocol EventDetailViewModelInterface {
     var logoUrl: String? { get }
     var isRegistered: Bool { get }
     var isCurrentUserAdmin: Bool { get }
+    var capacityText: String { get }
     
     func fetchRegistrationStatus() async
-    func toggleRegistration() async
+    func toggleRegistration() async throws
     func addToCalendar() async throws
     func deleteEvent() async throws
     func refreshEvent() async
@@ -31,6 +32,14 @@ class EventDetailViewModel {
     private let networkManager: any NetworkManagerInterface
     private let calendarManager: any CalendarManagerInterface
     private var currentUser: Users?
+    
+    var capacityText: String {
+        if let capacity = event.capacity {
+            return "👥 \(event.currentAttendees) / \(capacity)"
+        }
+        return "👥 \(event.currentAttendees) katılımcı"
+    }
+    var isFull: Bool { event.isFull }
     
     init(event: Events,
          logoUrl: String?,
@@ -66,25 +75,22 @@ extension EventDetailViewModel: EventDetailViewModelInterface {
         }
     }
     
-    func toggleRegistration() async {
+    func toggleRegistration() async throws {
         guard let userId = Auth.auth().currentUser?.uid,
               let eventId = event.id
         else { return }
         
-        do {
-            if isRegistered {
-                try await networkManager.leaveEvent(userId: userId, eventId: eventId)
-            }
-            else {
-                try await networkManager.joinEvent(userId: userId, eventId: eventId)
-            }
-            await MainActor.run {
-                isRegistered.toggle()
-            }
+        if isRegistered {
+            try await networkManager.leaveEvent(userId: userId, eventId: eventId)
         }
-        catch {
-            print("toggleRegistration failed: \(error.localizedDescription)")
+        else {
+            guard !event.isFull else {
+                throw NSError(domain: "Event", code: 409, userInfo: [NSLocalizedDescriptionKey: "Etkinlik kontenjani dolu."])
+            }
+            try await networkManager.joinEvent(userId: userId, eventId: eventId)
         }
+        await refreshEvent()
+        await MainActor.run { isRegistered.toggle() }
     }
     
     func addToCalendar() async throws {

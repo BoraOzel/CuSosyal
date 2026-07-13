@@ -22,7 +22,7 @@ protocol NetworkManagerInterface: AnyObject {
     func fetchSavedEvents(eventIds: [String]) async throws -> [Events]
     func updateUserTags(_ tags: [Tags]) async throws
     func createEvent(_ event: Events) async throws
-    func updateEvent(eventId: String, title: String, location: String, date: Date, description: String) async throws
+    func updateEvent(eventId: String, title: String, location: String, date: Date, description: String, capacity: Int?) async throws
     func deleteEvent(eventId: String) async throws
     func fetchEvent(eventId: String) async throws -> Events
     func updateCommunity(communityId: String, name: String, description: String, logoUrl: String?) async throws
@@ -110,11 +110,17 @@ class NetworkManager: NetworkManagerInterface {
     }
     
     func joinEvent(userId: String, eventId: String) async throws {
-        try await db.collection("users").document(userId).updateData(["reservedEvents" : FieldValue.arrayUnion([eventId])])
+        let batch = db.batch()
+        batch.updateData(["reservedEvents": FieldValue.arrayUnion([eventId])], forDocument: db.collection("users").document(userId))
+        batch.updateData(["attendeeCount": FieldValue.increment(Int64(1))], forDocument: db.collection("events").document(eventId))
+        try await batch.commit()
     }
     
     func leaveEvent(userId: String, eventId: String) async throws {
-        try await db.collection("users").document(userId).updateData(["reservedEvents" : FieldValue.arrayRemove([eventId])])
+        let batch = db.batch()
+        batch.updateData(["reservedEvents": FieldValue.arrayRemove([eventId])] , forDocument: db.collection("users").document(userId))
+        batch.updateData(["attendeeCount": FieldValue.increment(Int64(-1))] , forDocument: db.collection("events").document(eventId))
+        try await batch.commit()
     }
     
     func addFavouriteClub(clubId: String) async throws {
@@ -153,23 +159,28 @@ class NetworkManager: NetworkManagerInterface {
     }
     
     func createEvent(_ event: Events) async throws {
-        let data: [String: Any] = [
+        var data: [String: Any] = [
             "title": event.title,
             "location": event.location,
             "date": Timestamp(date: event.date),
             "description": event.description,
-            "clubId": event.clubId ?? ""
+            "clubId": event.clubId ?? "",
+            "capacity": 0
         ]
+        if let capacity = event.capacity { data["capacity"] = capacity }
+        
         try await db.collection("events").addDocument(data: data)
     }
     
-    func updateEvent(eventId: String, title: String, location: String, date: Date, description: String) async throws {
-        let data: [String: Any] = [
+    func updateEvent(eventId: String, title: String, location: String, date: Date, description: String, capacity: Int?) async throws {
+        var data: [String: Any] = [
             "title": title,
             "location": location,
             "date": Timestamp(date: date),
             "description": description
         ]
+        data["capacity"] = capacity ?? FieldValue.delete()
+        
         try await db.collection("events").document(eventId).updateData(data)
     }
     

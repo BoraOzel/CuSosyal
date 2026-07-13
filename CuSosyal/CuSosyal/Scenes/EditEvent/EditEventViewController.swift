@@ -20,6 +20,7 @@ class EditEventViewController: UIViewController, AlertPresentable {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var eventDatePicker: UIDatePicker!
+    @IBOutlet weak var capacityTextField: UITextField!
     
     private let viewModel: EditEventViewModelInterface
     
@@ -47,11 +48,22 @@ class EditEventViewController: UIViewController, AlertPresentable {
             showAlert(title: "Hata", message: "Lütfen tüm alanları doldurunuz.", buttonText: "Tamam")
             return
         }
+        
+        let capacityText = capacityTextField.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        var capacity: Int? = nil
+        if !capacityText.isEmpty {
+            guard let value = Int(capacityText), value > 0 else {
+                showAlert(title: "Hata", message: "Kontenjan için geçerli bir sayı giriniz.", buttonText: "Tamam")
+                return
+            }
+            capacity = value
+        }
+        
         Task {
             [weak self] in
             guard let self else { return }
             do {
-                try await viewModel.save(title: title, location: location, date: eventDatePicker.date, description: description)
+                try await viewModel.save(title: title, location: location, date: eventDatePicker.date, description: description, capacity: capacity)
                 await MainActor.run {
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -80,6 +92,7 @@ extension EditEventViewController: EditEventViewControllerInterface {
             locationTextField.text    = event.location
             descriptionTextView.text = event.description
             eventDatePicker.date      = event.date
+            if let capacity = event.capacity { capacityTextField.text = "\(capacity)" }
         }
         else {
             titleLabel.text = "Etkinlik Ekle"

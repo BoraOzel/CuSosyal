@@ -24,6 +24,7 @@ class EventDetailViewController: UIViewController, AlertPresentable {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var capacityLabel: UILabel!
     @IBOutlet weak var descriptionContainerView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
@@ -65,11 +66,20 @@ class EventDetailViewController: UIViewController, AlertPresentable {
     @IBAction func registerButtonClicked(_ sender: Any) {
         Task { [weak self] in
             guard let self else { return }
-            await viewModel.toggleRegistration()
-            await MainActor.run {
-                self.updateButtonState()
-                if self.viewModel.isRegistered {
-                    self.askAddToCalendar()
+            do {
+                try await viewModel.toggleRegistration()
+                await MainActor.run {
+                    self.updateButtonState()
+                    self.configureUI()
+                    if self.viewModel.isRegistered {
+                        self.askAddToCalendar()
+                    }
+                }
+            }
+            catch {
+                await MainActor.run {
+                    self.showAlert(title: "Hata", message: error.localizedDescription, buttonText: "Tamam")
+                    self.updateButtonState()
                 }
             }
         }
@@ -115,6 +125,7 @@ extension EventDetailViewController: EventDetailViewControllerInterface {
         locationLabel.text = "📍\(event.location)"
         descriptionLabel.text = event.description
         dateLabel.text = "🗓️\(Self.dateFormatter.string(from: event.date))"
+        capacityLabel.text = viewModel.capacityText
         imageView.sd_setImage(with: URL(string: viewModel.logoUrl ?? ""))
     }
     
@@ -130,8 +141,16 @@ extension EventDetailViewController: EventDetailViewControllerInterface {
         let isRegistered = viewModel.isRegistered
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
-        config.title = isRegistered ? "KAYDIMI İPTAL ET" : "KAYIT OL"
-        config.baseBackgroundColor = isRegistered ? .systemRed : UIColor(named: "primaryColor")
+        
+        if !isRegistered && viewModel.event.isFull {
+            config.title = "KONTENJAN DOLU"
+            config.baseBackgroundColor = .systemGray
+            registerButton.isEnabled = false
+        } else {
+            config.title = isRegistered ? "KAYDIMI İPTAL ET" : "KAYIT OL"
+            config.baseBackgroundColor = isRegistered ? .systemRed : UIColor(named: "primaryColor")
+            registerButton.isEnabled = true
+        }
         registerButton.configuration = config
     }
     
